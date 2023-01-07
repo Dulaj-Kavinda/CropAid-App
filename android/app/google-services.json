@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141330396541",
+    "project_id": "cropaidapp",
+    "storage_bucket": "cropaidapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141330396541:android:53940403beae42cb0d0814",
+        "android_client_info": {
+          "package_name": "com.dy.cropaid_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141330396541-v4koon6304udicnv5otk4csj5fsnvo6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo0cq9VaSdlexNR-sZEVSSB3srT8Lq2Vc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141330396541-v4koon6304udicnv5otk4csj5fsnvo6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
