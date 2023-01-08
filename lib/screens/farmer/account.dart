@@ -42,7 +42,7 @@ class FarmerAccount extends GetWidget<UserController> {
                             "Personal",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 2, 70, 2),
-                                fontFamily: "AbhayaLibre",
+                                fontFamily: "Poppins",
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -57,7 +57,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -79,7 +79,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -101,7 +101,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -123,7 +123,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -158,7 +158,7 @@ class FarmerAccount extends GetWidget<UserController> {
                             "Farm",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 2, 70, 2),
-                                fontFamily: "AbhayaLibre",
+                                fontFamily: "Poppins",
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -173,7 +173,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -195,7 +195,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -217,7 +217,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -252,7 +252,7 @@ class FarmerAccount extends GetWidget<UserController> {
                             "Bank Account",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 2, 70, 2),
-                                fontFamily: "AbhayaLibre",
+                                fontFamily: "Poppins",
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -267,7 +267,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(
@@ -289,7 +289,7 @@ class FarmerAccount extends GetWidget<UserController> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "AbhayaLibre",
+                                      fontFamily: "Poppins",
                                       fontSize: 18)),
                             ),
                             Expanded(

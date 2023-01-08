@@ -57,7 +57,7 @@ class OfficerHome extends StatelessWidget {
                                         Text(
                                           incidentController
                                               .incidents[index].user!.name!,
-                                          style: CropifyThemes.mainTextTheme,
+                                          style: CropAidThemes.mainTextTheme,
                                         ),
                                         Text(
                                           incidentController
@@ -66,7 +66,7 @@ class OfficerHome extends StatelessWidget {
                                               .toString()
                                               .split(" ")
                                               .first,
-                                          style: CropifyThemes.subTextTheme,
+                                          style: CropAidThemes.subTextTheme,
                                         ),
                                       ],
                                     ),
@@ -77,7 +77,7 @@ class OfficerHome extends StatelessWidget {
                                         child: Text(
                                           incidentController
                                               .incidents[index].types!,
-                                          style: CropifyThemes.subTextTheme,
+                                          style: CropAidThemes.subTextTheme,
                                         ),
                                       ),
                                     ),
@@ -94,7 +94,7 @@ class OfficerHome extends StatelessWidget {
                                         },
                                         child: const Text(
                                           "Info",
-                                          style: CropifyThemes.buttonTextTheme,
+                                          style: CropAidThemes.buttonTextTheme,
                                         ),
                                       ),
                                     ),

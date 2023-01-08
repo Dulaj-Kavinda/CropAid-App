@@ -24,26 +24,13 @@ class ReportIncident extends GetView<ReportIncidentController> {
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Scaffold(
-            appBar: const CropifyAppBar(
+            appBar: const CropAidAppBar(
               visible: false,
             ),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  child: const Align(
-                    alignment: FractionalOffset.bottomCenter,
-                    child: Padding(
-                        padding: EdgeInsets.only(bottom: 10.0),
-                        child: Text(
-                          "Report  Incident",
-                          style: TextStyle(
-                              fontFamily: "AbhayaLibre",
-                              fontSize: 30,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        )),
-                  ),
                   alignment: Alignment.center,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
@@ -53,6 +40,19 @@ class ReportIncident extends GetView<ReportIncidentController> {
                   ),
                   height: 150,
                   width: double.infinity,
+                  child: const Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Padding(
+                        padding: EdgeInsets.only(bottom: 10.0),
+                        child: Text(
+                          "Report  Incident",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
                 ),
                 Expanded(
                   child: SingleChildScrollView(
@@ -68,6 +68,15 @@ class ReportIncident extends GetView<ReportIncidentController> {
                               ),
                               Expanded(
                                   child: Container(
+                                constraints: const BoxConstraints(
+                                    minHeight: 100, minWidth: double.infinity),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: const Color.fromARGB(255, 2, 70, 2),
+                                  ),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
                                 child: GetX<ReportIncidentController>(
                                   builder: (_) {
                                     if (_.crops!.isNotEmpty) {
@@ -92,15 +101,6 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                     }
                                   },
                                 ),
-                                constraints: const BoxConstraints(
-                                    minHeight: 100, minWidth: double.infinity),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color.fromARGB(255, 2, 70, 2),
-                                  ),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                ),
                               ))
                             ],
                           ),
@@ -114,6 +114,15 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                 child: Text("Acres Affected"),
                               ),
                               Container(
+                                height: 50,
+                                width: (MediaQuery.of(context).size.width) / 3,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: const Color.fromARGB(255, 2, 70, 2),
+                                  ),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
                                 child: TextFormField(
                                   controller: acresController,
                                   keyboardType: TextInputType.number,
@@ -136,15 +145,6 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                     hintStyle: TextStyle(fontSize: 10),
                                   ),
                                 ),
-                                height: 50,
-                                width: (MediaQuery.of(context).size.width) / 3,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color.fromARGB(255, 2, 70, 2),
-                                  ),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                ),
                               )
                             ],
                           ),
@@ -159,6 +159,14 @@ class ReportIncident extends GetView<ReportIncidentController> {
                               ),
                               Expanded(
                                   child: Container(
+                                height: 120,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: const Color.fromARGB(255, 2, 70, 2),
+                                  ),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
                                 child: TextFormField(
                                   controller: descriptionController,
                                   keyboardType: TextInputType.multiline,
@@ -180,14 +188,6 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                     hintStyle: TextStyle(fontSize: 10),
                                   ),
                                 ),
-                                height: 120,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color.fromARGB(255, 2, 70, 2),
-                                  ),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                ),
                               ))
                             ],
                           ),
@@ -202,6 +202,7 @@ class ReportIncident extends GetView<ReportIncidentController> {
                               ),
                               Expanded(
                                   child: SizedBox(
+                                height: 50,
                                 child: OutlinedButton.icon(
                                   icon: const Icon(Icons.image),
                                   label: const Text(
@@ -228,7 +229,6 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                     ),
                                   ),
                                 ),
-                                height: 50,
                               ))
                             ],
                           ),

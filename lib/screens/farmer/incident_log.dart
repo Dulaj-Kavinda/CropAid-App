@@ -14,19 +14,6 @@ class IncidentLog extends GetWidget<IncidentLogController> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            child: const Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Text(
-                    "Incident Log",
-                    style: TextStyle(
-                        fontFamily: "AbhayaLibre",
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  )),
-            ),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -36,6 +23,19 @@ class IncidentLog extends GetWidget<IncidentLogController> {
             ),
             height: 150,
             width: double.infinity,
+            child: const Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Padding(
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    "Incident Log",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )),
+            ),
           ),
           Expanded(
             child: Column(
@@ -77,7 +77,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         .first,
                                                     style: const TextStyle(
                                                         fontFamily:
-                                                            "AbhayaLibre",
+                                                            "Poppins",
                                                         fontSize: 18)),
                                               ],
                                             ),
@@ -123,7 +123,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontFamily:
-                                                            "AbhayaLibre",
+                                                            "Poppins",
                                                         fontSize: 18),
                                                   ),
                                                 ),
@@ -148,7 +148,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                                         FontWeight
                                                                             .w500,
                                                                     fontFamily:
-                                                                        "AbhayaLibre",
+                                                                        "Poppins",
                                                                     fontSize:
                                                                         18)),
                                                           ),
@@ -188,7 +188,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                                       FontWeight
                                                                           .w500,
                                                                   fontFamily:
-                                                                      "AbhayaLibre",
+                                                                      "Poppins",
                                                                   fontSize:
                                                                       18)),
                                                         ),
@@ -222,7 +222,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                                       FontWeight
                                                                           .w500,
                                                                   fontFamily:
-                                                                      "AbhayaLibre",
+                                                                      "Poppins",
                                                                   fontSize:
                                                                       18)),
                                                         ),

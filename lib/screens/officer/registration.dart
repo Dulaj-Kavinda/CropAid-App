@@ -35,7 +35,7 @@ class OfficerRegistration extends StatelessWidget {
             ),
             const Text(
               "Complete Profile",
-              style: CropifyThemes.titleTextTheme,
+              style: CropAidThemes.titleTextTheme,
             ),
             const SizedBox(
               height: 25,
@@ -61,7 +61,7 @@ class OfficerRegistration extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Color.fromARGB(255, 20, 9, 119),
-                                fontFamily: "AbhayaLibre"),
+                                fontFamily: "Poppins"),
                           ),
                         ),
                         TextFormField(
@@ -98,7 +98,7 @@ class OfficerRegistration extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Color.fromARGB(255, 20, 9, 119),
-                                fontFamily: "AbhayaLibre"),
+                                fontFamily: "Poppins"),
                           ),
                         ),
                         TextFormField(

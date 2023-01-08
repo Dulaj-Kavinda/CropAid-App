@@ -58,7 +58,7 @@ class InprogressTasks extends StatelessWidget {
                                               .inprogressIncidents[index]
                                               .user!
                                               .name!,
-                                          style: CropifyThemes.mainTextTheme,
+                                          style: CropAidThemes.mainTextTheme,
                                         ),
                                         Text(
                                           incidentController
@@ -67,7 +67,7 @@ class InprogressTasks extends StatelessWidget {
                                               .toString()
                                               .split(" ")
                                               .first,
-                                          style: CropifyThemes.subTextTheme,
+                                          style: CropAidThemes.subTextTheme,
                                         ),
                                       ],
                                     ),
@@ -79,7 +79,7 @@ class InprogressTasks extends StatelessWidget {
                                           incidentController
                                               .inprogressIncidents[index]
                                               .types!,
-                                          style: CropifyThemes.subTextTheme,
+                                          style: CropAidThemes.subTextTheme,
                                         ),
                                       ),
                                     ),
@@ -96,7 +96,7 @@ class InprogressTasks extends StatelessWidget {
                                         },
                                         child: const Text(
                                           "Info",
-                                          style: CropifyThemes.buttonTextTheme,
+                                          style: CropAidThemes.buttonTextTheme,
                                         ),
                                       ),
                                     ),

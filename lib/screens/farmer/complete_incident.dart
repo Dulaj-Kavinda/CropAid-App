@@ -14,19 +14,6 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            child: const Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Text(
-                    "Completed Incidents",
-                    style: TextStyle(
-                        fontFamily: "AbhayaLibre",
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  )),
-            ),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -36,6 +23,19 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
             ),
             height: 150,
             width: double.infinity,
+            child: const Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Padding(
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    "Completed Incidents",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )),
+            ),
           ),
           Expanded(
             child: Column(
@@ -78,7 +78,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                         .first,
                                                     style: const TextStyle(
                                                         fontFamily:
-                                                            "AbhayaLibre",
+                                                            "Poppins",
                                                         fontSize: 18)),
                                               ],
                                             ),
@@ -132,7 +132,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontFamily:
-                                                            "AbhayaLibre",
+                                                            "Poppins",
                                                         fontSize: 18),
                                                   ),
                                                 ),
@@ -158,7 +158,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                         FontWeight
                                                                             .w500,
                                                                     fontFamily:
-                                                                        "AbhayaLibre",
+                                                                        "Poppins",
                                                                     fontSize:
                                                                         18)),
                                                           ),
@@ -204,7 +204,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                         FontWeight
                                                                             .w500,
                                                                     fontFamily:
-                                                                        "AbhayaLibre",
+                                                                        "Poppins",
                                                                     fontSize:
                                                                         18)),
                                                           ),
@@ -250,7 +250,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                         FontWeight
                                                                             .w500,
                                                                     fontFamily:
-                                                                        "AbhayaLibre",
+                                                                        "Poppins",
                                                                     fontSize:
                                                                         18)),
                                                           ),
@@ -290,7 +290,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                         FontWeight
                                                                             .w500,
                                                                     fontFamily:
-                                                                        "AbhayaLibre",
+                                                                        "Poppins",
                                                                     fontSize:
                                                                         18)),
                                                           ),
@@ -327,7 +327,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                       FontWeight
                                                                           .w500,
                                                                   fontFamily:
-                                                                      "AbhayaLibre",
+                                                                      "Poppins",
                                                                   fontSize:
                                                                       18)),
                                                         ),
@@ -362,7 +362,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                       FontWeight
                                                                           .w500,
                                                                   fontFamily:
-                                                                      "AbhayaLibre",
+                                                                      "Poppins",
                                                                   fontSize:
                                                                       18)),
                                                         ),
@@ -396,7 +396,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                       FontWeight
                                                                           .w500,
                                                                   fontFamily:
-                                                                      "AbhayaLibre",
+                                                                      "Poppins",
                                                                   fontSize:
                                                                       18)),
                                                         ),

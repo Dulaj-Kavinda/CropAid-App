@@ -34,7 +34,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
               ),
               const Text(
                 "Incident Info",
-                style: CropifyThemes.titleTextTheme,
+                style: CropAidThemes.titleTextTheme,
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
@@ -46,11 +46,11 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Name :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         Text(incident.user!.name!,
-                            style: CropifyThemes.mainTextTheme),
+                            style: CropAidThemes.mainTextTheme),
                       ],
                     ),
                     const SizedBox(
@@ -62,12 +62,12 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Date :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         Text(
                             incident.date!.toDate().toString().split(" ").first,
-                            style: CropifyThemes.mainTextTheme),
+                            style: CropAidThemes.mainTextTheme),
                       ],
                     ),
                     const SizedBox(
@@ -79,11 +79,11 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Location :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         Text(incident.user!.address!,
-                            style: CropifyThemes.mainTextTheme),
+                            style: CropAidThemes.mainTextTheme),
                       ],
                     ),
                     const SizedBox(
@@ -95,11 +95,11 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Bank :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         Text(incident.user!.bankName!,
-                            style: CropifyThemes.mainTextTheme),
+                            style: CropAidThemes.mainTextTheme),
                       ],
                     ),
                     const SizedBox(
@@ -111,11 +111,11 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Account No :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         Text(incident.user!.accountNum!,
-                            style: CropifyThemes.mainTextTheme),
+                            style: CropAidThemes.mainTextTheme),
                       ],
                     ),
                     const SizedBox(
@@ -128,14 +128,14 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Crop Types :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         SizedBox(
                           width: 200,
                           child: Text(
                             incident.types!,
-                            style: CropifyThemes.mainTextTheme,
+                            style: CropAidThemes.mainTextTheme,
                           ),
                         ),
                       ],
@@ -149,11 +149,11 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Acres Affected :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         Text(incident.acres.toString(),
-                            style: CropifyThemes.mainTextTheme),
+                            style: CropAidThemes.mainTextTheme),
                       ],
                     ),
                     const SizedBox(
@@ -166,14 +166,14 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Description :",
-                            style: CropifyThemes.subTextTheme,
+                            style: CropAidThemes.subTextTheme,
                           ),
                         ),
                         SizedBox(
                           width: 200,
                           child: Text(
                             incident.description!,
-                            style: CropifyThemes.mainTextTheme,
+                            style: CropAidThemes.mainTextTheme,
                           ),
                         ),
                       ],
@@ -187,7 +187,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                     ),
                     const Text(
                       "Photos & Videos",
-                      style: CropifyThemes.subTextTheme,
+                      style: CropAidThemes.subTextTheme,
                     ),
                     const SizedBox(
                       height: 10,
@@ -257,10 +257,10 @@ class IncidentInfo extends GetWidget<IncidentController> {
               width: labelWidth,
               child: const Text(
                 "Status :",
-                style: CropifyThemes.subTextTheme,
+                style: CropAidThemes.subTextTheme,
               ),
             ),
-            const Text("New", style: CropifyThemes.mainTextTheme),
+            const Text("New", style: CropAidThemes.mainTextTheme),
           ],
         );
       case IncidentStatus.IN_PROGRESS:
@@ -270,10 +270,10 @@ class IncidentInfo extends GetWidget<IncidentController> {
               width: labelWidth,
               child: const Text(
                 "Status :",
-                style: CropifyThemes.subTextTheme,
+                style: CropAidThemes.subTextTheme,
               ),
             ),
-            const Text("In-Progress", style: CropifyThemes.mainTextTheme),
+            const Text("In-Progress", style: CropAidThemes.mainTextTheme),
           ],
         );
       case IncidentStatus.COMPLETED:
@@ -284,10 +284,10 @@ class IncidentInfo extends GetWidget<IncidentController> {
                 width: labelWidth,
                 child: const Text(
                   "Status :",
-                  style: CropifyThemes.subTextTheme,
+                  style: CropAidThemes.subTextTheme,
                 ),
               ),
-              const Text("Completed", style: CropifyThemes.mainTextTheme),
+              const Text("Completed", style: CropAidThemes.mainTextTheme),
             ],
           ),
           const SizedBox(
@@ -303,7 +303,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
-                      fontFamily: "AbhayaLibre"),
+                      fontFamily: "Poppins"),
                 ),
               ),
               Text("Rs." + incident.amount.toString(),
@@ -311,7 +311,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 8, 126, 12),
-                      fontFamily: "AbhayaLibre")),
+                      fontFamily: "Poppins")),
             ],
           ),
           const SizedBox(
@@ -324,14 +324,14 @@ class IncidentInfo extends GetWidget<IncidentController> {
                 width: labelWidth,
                 child: const Text(
                   "Comment :",
-                  style: CropifyThemes.subTextTheme,
+                  style: CropAidThemes.subTextTheme,
                 ),
               ),
               SizedBox(
                 width: 200,
                 child: Text(
                   incident.comment!,
-                  style: CropifyThemes.mainTextTheme,
+                  style: CropAidThemes.mainTextTheme,
                 ),
               ),
             ],
@@ -356,7 +356,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
               style: ElevatedButton.styleFrom(primary: Colors.red),
               child: const Text(
                 "Reject",
-                style: CropifyThemes.buttonTextTheme,
+                style: CropAidThemes.buttonTextTheme,
               ),
             ),
             ElevatedButton(
@@ -367,7 +367,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
               style: ElevatedButton.styleFrom(primary: Colors.green),
               child: const Text(
                 "In-Progress",
-                style: CropifyThemes.buttonTextTheme,
+                style: CropAidThemes.buttonTextTheme,
               ),
             ),
           ],
@@ -384,7 +384,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
               style: ElevatedButton.styleFrom(primary: Colors.red),
               child: const Text(
                 "Reject",
-                style: CropifyThemes.buttonTextTheme,
+                style: CropAidThemes.buttonTextTheme,
               ),
             ),
             ElevatedButton(
@@ -394,7 +394,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
               style: ElevatedButton.styleFrom(primary: Colors.green),
               child: const Text(
                 "Make Payment",
-                style: CropifyThemes.buttonTextTheme,
+                style: CropAidThemes.buttonTextTheme,
               ),
             )
           ],
@@ -438,7 +438,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 8, 8, 56),
-                  fontFamily: "AbhayaLibre"),
+                  fontFamily: "Poppins"),
             ),
             const SizedBox(
               height: 15,
@@ -471,7 +471,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                     "Cancel",
                     style: TextStyle(
                       fontSize: 20,
-                      fontFamily: "AbhayaLibre",
+                      fontFamily: "Poppins",
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -487,7 +487,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                     "Confirm",
                     style: TextStyle(
                       fontSize: 20,
-                      fontFamily: "AbhayaLibre",
+                      fontFamily: "Poppins",
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -512,7 +512,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 8, 8, 56),
-                  fontFamily: "AbhayaLibre"),
+                  fontFamily: "Poppins"),
             ),
             const SizedBox(
               height: 15,
@@ -558,7 +558,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                     "Cancel",
                     style: TextStyle(
                       fontSize: 20,
-                      fontFamily: "AbhayaLibre",
+                      fontFamily: "Poppins",
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -586,7 +586,7 @@ class IncidentInfo extends GetWidget<IncidentController> {
                     "Confirm",
                     style: TextStyle(
                       fontSize: 20,
-                      fontFamily: "AbhayaLibre",
+                      fontFamily: "Poppins",
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

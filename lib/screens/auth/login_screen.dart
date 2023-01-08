@@ -25,7 +25,7 @@ class LoginScreen extends GetWidget<AuthController> {
             height: 250,
             width: double.infinity,
             child: const Text(
-              'Cropify',
+              'CropAid',
               style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.w100,

@@ -20,7 +20,7 @@ class FarmerRegistration extends GetWidget<UserController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CropifyAppBar(),
+      appBar: const CropAidAppBar(),
       body: Align(
         alignment: Alignment.center,
         child: SingleChildScrollView(
@@ -34,7 +34,7 @@ class FarmerRegistration extends GetWidget<UserController> {
                 "Complete Profile",
                 style: TextStyle(
                     color: Color.fromARGB(255, 2, 70, 2),
-                    fontFamily: "AbhayaLibre",
+                    fontFamily: "Poppins",
                     fontSize: 20),
               ),
               const SizedBox(
@@ -56,7 +56,7 @@ class FarmerRegistration extends GetWidget<UserController> {
                               "Personal Details",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 2, 70, 2),
-                                  fontFamily: "AbhayaLibre"),
+                                  fontFamily: "Poppins"),
                             ),
                           ),
                           TextFormField(
@@ -124,7 +124,7 @@ class FarmerRegistration extends GetWidget<UserController> {
                               "Farm Details",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 2, 70, 2),
-                                  fontFamily: "AbhayaLibre"),
+                                  fontFamily: "Poppins"),
                             ),
                           ),
                           TextFormField(
@@ -192,7 +192,7 @@ class FarmerRegistration extends GetWidget<UserController> {
                               "Bank Details",
                               style: TextStyle(
                                   color: Color.fromARGB(255, 2, 70, 2),
-                                  fontFamily: "AbhayaLibre"),
+                                  fontFamily: "Poppins"),
                             ),
                           ),
                           TextFormField(

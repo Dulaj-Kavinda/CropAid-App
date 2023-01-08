@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CropifyThemes {
+class CropAidThemes {
   static final light = ThemeData.light().copyWith(
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -22,7 +22,7 @@ class CropifyThemes {
 
   static const titleTextTheme = TextStyle(
       color: Color.fromARGB(255, 20, 9, 119),
-      fontFamily: "AbhayaLibre",
+      fontFamily: "Poppins",
       fontSize: 30,
       fontWeight: FontWeight.bold);
 
@@ -30,17 +30,17 @@ class CropifyThemes {
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: Color.fromARGB(255, 97, 97, 99),
-      fontFamily: "AbhayaLibre");
+      fontFamily: "Poppins");
 
   static const mainTextTheme = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: Color.fromARGB(255, 8, 8, 56),
-      fontFamily: "AbhayaLibre");
+      fontFamily: "Poppins");
 
   static const buttonTextTheme = TextStyle(
     fontSize: 20,
-    fontFamily: "AbhayaLibre",
+    fontFamily: "Poppins",
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );

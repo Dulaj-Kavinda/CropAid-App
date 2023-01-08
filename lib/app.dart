@@ -16,7 +16,7 @@ class CropAidApp extends StatelessWidget {
       title: "CropAid",
       debugShowCheckedModeBanner: false,
       initialBinding: AuthBinding(),
-      theme: CropifyThemes.light,
+      theme: CropAidThemes.light,
       initialRoute: "/",
       getPages: GetPages.init(),
       defaultTransition: Transition.zoom,

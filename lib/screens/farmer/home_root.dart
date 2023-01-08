@@ -1,3 +1,4 @@
+import 'package:cropaid_app/theme/light_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,12 +10,13 @@ class FarmerHomeRoot extends GetView<FarmerBottomNavController> {
 
   final FarmerBottomNavController bottomNavController =
       Get.put(FarmerBottomNavController());
+
   // TODO: delete bottom nav controller on sign out
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CropifyAppBar(),
+      //appBar: const CropAidAppBar(),
       body: Navigator(
         key: Get.nestedKey(1),
         initialRoute: 'farmerHome',
@@ -22,23 +24,39 @@ class FarmerHomeRoot extends GetView<FarmerBottomNavController> {
       ),
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             elevation: 10,
-            type: BottomNavigationBarType.fixed,
+            type: BottomNavigationBarType.shifting,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(
+                  Icons.home,
+                  size: 25,
+                ),
                 label: 'Home',
+                backgroundColor: LightColors.kDarkGreen,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.search),
+                icon: Icon(
+                  Icons.format_list_bulleted,
+                  size: 25,
+                ),
                 label: 'Log',
+                backgroundColor: LightColors.kDarkGreen,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.check_circle),
-                label: 'Complete',
+                icon: Icon(
+                  Icons.done_outline_sharp,
+                  size: 25,
+                ),
+                label: 'Reviewed',
+                backgroundColor: LightColors.kDarkGreen,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Account',
+                icon: Icon(
+                  Icons.account_circle_outlined,
+                  size: 25,
+                ),
+                label: 'Profile',
+                backgroundColor: LightColors.kDarkGreen,
               ),
             ],
             currentIndex: controller.currentIndex.value,

@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 
 import '../../controllers/auth_controller.dart';
 
-class CropifyAppBar extends GetWidget<AuthController>
+class CropAidAppBar extends GetWidget<AuthController>
     implements PreferredSizeWidget {
   final bool visible;
 
-  const CropifyAppBar({Key? key, this.visible = true}) : super(key: key);
+  const CropAidAppBar({Key? key, this.visible = true}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
