@@ -300,12 +300,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                     Alignment
                                                                         .topRight,
                                                                 child: Text(
-                                                                  "Rs. " +
-                                                                      controller
+                                                                  "Rs. ${controller
                                                                           .completeIncidents[
                                                                               index]
-                                                                          .amount
-                                                                          .toString(),
+                                                                          .amount}",
                                                                 )),
                                                           ),
                                                         ],
