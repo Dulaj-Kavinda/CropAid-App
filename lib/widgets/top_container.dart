@@ -7,20 +7,26 @@ class TopContainer extends StatelessWidget {
   final double width;
   final Widget child;
   final EdgeInsets padding;
+  final String imageName;
 
-  const TopContainer(
-      {super.key,
-      required this.height,
-      required this.width,
-      required this.child,
-      required this.padding});
+  TopContainer({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.child,
+    required this.padding,
+    required this.imageName,
+
+  });
 
   @override
   Widget build(BuildContext context) {
+
+
     return Container(
       padding: padding != null
           ? padding
-          : const EdgeInsets.symmetric(horizontal: 20.0),
+          : EdgeInsets.symmetric(horizontal: 20.0),
       decoration: const BoxDecoration(
         color: LightColors.kDarkGreen,
         borderRadius: BorderRadius.only(
@@ -28,7 +34,7 @@ class TopContainer extends StatelessWidget {
           bottomLeft: Radius.circular(40.0),
         ),
         image: DecorationImage(
-          image: AssetImage("assets/crop_bgop.png"),
+          image: AssetImage('assets/crop_damage.png'),
           fit: BoxFit.cover,
         ),
       ),

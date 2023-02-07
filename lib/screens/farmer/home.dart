@@ -1,13 +1,12 @@
-import 'package:cropaid_app/utils/carousal_items.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+import '../../controllers/auth_controller.dart';
 
 import '../../theme/light_colors.dart';
 import '../../widgets/task_column.dart';
 import '../../widgets/top_container.dart';
 
-class FarmerHome extends StatelessWidget {
+class FarmerHome extends GetWidget<AuthController> {
   const FarmerHome({Key? key}) : super(key: key);
 
   @override
@@ -20,16 +19,22 @@ class FarmerHome extends StatelessWidget {
             height: 300,
             width: width,
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            imageName: 'assets/crop_bgop.png',
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const <Widget>[
-                      Icon(Icons.menu,
+                    children: <Widget>[
+                      const Icon(Icons.menu,
                           color: LightColors.kDarkBlue, size: 30.0),
-                      Icon(Icons.search,
-                          color: LightColors.kDarkBlue, size: 25.0),
+                      IconButton(
+                          onPressed: () {
+                            Get.back();
+                            controller.signOut();
+                          },
+                          icon: const Icon(Icons.logout,
+                              color: LightColors.kDarkBlue, size: 25.0)),
                     ],
                   ),
                   Padding(
