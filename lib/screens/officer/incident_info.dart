@@ -7,34 +7,77 @@ import 'package:cropaid_app/screens/officer/appbar.dart';
 import 'package:cropaid_app/widgets/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
+import 'package:multi_select_flutter/util/multi_select_list_type.dart';
 
-class IncidentInfo extends GetWidget<IncidentController> {
+import '../../controllers/auth_controller.dart';
+import '../../controllers/report_incident_controller.dart';
+import '../../theme/light_colors.dart';
+import '../../widgets/back_button.dart';
+import '../../widgets/top_container.dart';
+
+class IncidentInfo extends GetWidget<AuthController>  {
   IncidentInfo({Key? key}) : super(key: key);
 
   IncidentModel incident = Get.arguments;
 
   final TextEditingController commentController = TextEditingController();
   final TextEditingController amountContorller = TextEditingController();
-  final double labelWidth = 135;
+  final double labelWidth = 150;
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    var downwardIcon = const Icon(
+      Icons.keyboard_arrow_down,
+      color: Colors.black54,
+    );
+
     IncidentController incidentController =
         Get.put<IncidentController>(IncidentController());
     return Scaffold(
-      appBar: const OfficerAppBar(),
+      // appBar: const OfficerAppBar(),
       body: Align(
         alignment: Alignment.center,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              TopContainer(
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+                width: width,
+                height: height * .3,
+                imageName: 'assets/crop_damage.png',
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Column(
+                    children: <Widget>[
+                      MyBackButton(),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const <Widget>[
+                          Text(
+                            'Incident Details',
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+
+                    ],
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 30,
-              ),
-              const Text(
-                "Incident Info",
-                style: CropAidThemes.titleTextTheme,
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
@@ -46,11 +89,11 @@ class IncidentInfo extends GetWidget<IncidentController> {
                           width: labelWidth,
                           child: const Text(
                             "Name :",
-                            style: CropAidThemes.subTextTheme,
+                            style: CropAidThemes.mainTextTheme,
                           ),
                         ),
                         Text(incident.user!.name!,
-                            style: CropAidThemes.mainTextTheme),
+                            style: CropAidThemes.subTextTheme),
                       ],
                     ),
                     const SizedBox(
