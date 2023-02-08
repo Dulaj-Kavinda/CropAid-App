@@ -4,7 +4,6 @@ class MyTextField extends StatelessWidget {
   final String label;
   final int maxLines;
   final int minLines;
-  final Icon icon;
   final double hintHeight;
 
   MyTextField({
@@ -12,7 +11,6 @@ class MyTextField extends StatelessWidget {
     this.maxLines = 1,
     this.minLines = 1,
     this.hintHeight = 0.0,
-    required this.icon,
   });
 
   @override
@@ -22,7 +20,6 @@ class MyTextField extends StatelessWidget {
       minLines: minLines,
       maxLines: maxLines,
       decoration: InputDecoration(
-          suffixIcon: icon == null ? null : icon,
           labelText: label,
           labelStyle: const TextStyle(color: Colors.black45),
           hintStyle: TextStyle(

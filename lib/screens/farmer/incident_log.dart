@@ -3,38 +3,41 @@ import 'package:get/get.dart';
 
 import '../../controllers/incident_log_controller.dart';
 import '../../models/incident_status.dart';
+import '../../theme/light_colors.dart';
+import '../../widgets/top_container.dart';
 
 class IncidentLog extends GetWidget<IncidentLogController> {
   const IncidentLog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/vegies-other.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            height: 150,
-            width: double.infinity,
-            child: const Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Text(
-                    "Incident Log",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  )),
+          TopContainer(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+            width: width,
+            height: height * .2,
+            imageName: 'assets/crop_damage.png',
+            child: Column(
+              children: const <Widget>[
+                SizedBox(
+                  height: 40,
+                ),
+                Text(
+                  'My Incident Log',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10),
+              ],
             ),
           ),
           Expanded(
@@ -46,7 +49,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                     if ((controller.newIncidents.isNotEmpty)) {
                       return Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
+                          padding: const EdgeInsets.fromLTRB(15, 2, 15, 2),
                           child: ListView.builder(
                               itemCount: controller.newIncidents.length,
                               itemBuilder: (BuildContext context, int index) {
@@ -54,6 +57,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                   padding: const EdgeInsets.fromLTRB(
                                       10.0, 0.0, 0, 10.0),
                                   child: Card(
+                                    color: Colors.grey.shade300,
                                     shadowColor:
                                         const Color.fromARGB(255, 37, 87, 39),
                                     elevation: 5,
@@ -65,8 +69,12 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                           children: <Widget>[
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.end,
+                                                  MainAxisAlignment.start,
                                               children: [
+                                                const Text("Date Added: ",
+                                                    style: TextStyle(
+                                                        fontFamily: "Poppins",
+                                                        fontSize: 15)),
                                                 Text(
                                                     controller
                                                         .newIncidents[index]
@@ -76,9 +84,8 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         .split(" ")
                                                         .first,
                                                     style: const TextStyle(
-                                                        fontFamily:
-                                                            "Poppins",
-                                                        fontSize: 18)),
+                                                        fontFamily: "Poppins",
+                                                        fontSize: 15)),
                                               ],
                                             ),
                                             Align(
@@ -87,8 +94,8 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                 controller
                                                     .newIncidents[index].types!,
                                                 style: const TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 15),
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 16),
                                               ),
                                             ),
                                             Theme(
@@ -96,20 +103,33 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                   dividerColor:
                                                       Colors.transparent),
                                               child: ExpansionTile(
-                                                tilePadding: EdgeInsets.zero,
+                                                expandedCrossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                tilePadding:
+                                                    EdgeInsets.only(right: 60),
                                                 title: ElevatedButton(
-                                                  style: ElevatedButton.styleFrom(
-                                                      primary: controller
-                                                                  .newIncidents[
-                                                                      index]
-                                                                  .status ==
-                                                              IncidentStatus.NEW
-                                                          ? const Color
-                                                                  .fromARGB(255,
-                                                              115, 188, 236)
-                                                          : const Color
-                                                                  .fromARGB(221,
-                                                              248, 244, 8)),
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                          shape:
+                                                              const RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .all(Radius
+                                                                        .circular(
+                                                                            15)),
+                                                          ),
+                                                          minimumSize:
+                                                              Size(100, 45),
+                                                          backgroundColor: controller
+                                                                      .newIncidents[
+                                                                          index]
+                                                                      .status ==
+                                                                  IncidentStatus
+                                                                      .NEW
+                                                              ? LightColors
+                                                                  .kLightGreen
+                                                              : LightColors
+                                                                  .kGreen),
                                                   onPressed: () {},
                                                   child: Text(
                                                     controller
@@ -122,9 +142,8 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.w500,
-                                                        fontFamily:
-                                                            "Poppins",
-                                                        fontSize: 18),
+                                                        fontFamily: "Poppins",
+                                                        fontSize: 17),
                                                   ),
                                                 ),
                                                 children: [
@@ -190,21 +209,14 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                                   fontFamily:
                                                                       "Poppins",
                                                                   fontSize:
-                                                                      18)),
+                                                                      15)),
                                                         ),
                                                         const SizedBox(
-                                                          width: 20,
+                                                          width: 10,
                                                         ),
-                                                        Expanded(
-                                                          child: Align(
-                                                            alignment: Alignment
-                                                                .topRight,
-                                                            child: Text(controller
-                                                                .newIncidents[
-                                                                    index]
-                                                                .description!),
-                                                          ),
-                                                        ),
+                                                        Text(controller
+                                                            .newIncidents[index]
+                                                            .description!),
                                                       ],
                                                     ),
                                                   ),
@@ -214,7 +226,8 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                     child: Row(
                                                       children: [
                                                         const SizedBox(
-                                                          child: Text("Acres:",
+                                                          child: Text(
+                                                              "Nr of Acres:",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .black,
@@ -224,22 +237,15 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                                   fontFamily:
                                                                       "Poppins",
                                                                   fontSize:
-                                                                      18)),
+                                                                      15)),
                                                         ),
                                                         const SizedBox(
-                                                          width: 20,
+                                                          width: 10,
                                                         ),
-                                                        Expanded(
-                                                          child: Align(
-                                                            alignment: Alignment
-                                                                .topRight,
-                                                            child: Text(controller
-                                                                .newIncidents[
-                                                                    index]
-                                                                .acres!
-                                                                .toString()),
-                                                          ),
-                                                        ),
+                                                        Text(controller
+                                                            .newIncidents[index]
+                                                            .acres!
+                                                            .toString()),
                                                       ],
                                                     ),
                                                   ),
