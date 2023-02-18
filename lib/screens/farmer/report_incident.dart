@@ -7,9 +7,8 @@ import 'package:get/get.dart';
 import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:multi_select_flutter/util/multi_select_list_type.dart';
+import '../../controllers/damage_type_controller.dart';
 import '../../theme/light_colors.dart';
-import '../../widgets/back_button.dart';
-import '../../widgets/my_text_field.dart';
 import '../../widgets/top_container.dart';
 import 'media_picker.dart';
 
@@ -19,6 +18,8 @@ class ReportIncident extends GetView<ReportIncidentController> {
 
   final CameraController cameraController = Get.put(CameraController());
   final UserController userController = Get.put(UserController());
+
+  final DamageTypeController damageTypeController=Get.put(DamageTypeController());
 
   ReportIncident({Key? key}) : super(key: key);
 
@@ -43,7 +44,7 @@ class ReportIncident extends GetView<ReportIncidentController> {
                       TopContainer(
                         padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
                         width: width,
-                        height: height * .4,
+                        height: height * .48+ damageTypeController.typeCount*0.1,
                         imageName: 'assets/crop_damage.png',
                         child: Column(
                           children: <Widget>[
@@ -68,10 +69,10 @@ class ReportIncident extends GetView<ReportIncidentController> {
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
-                                  'Create new complaint',
-                                  style: TextStyle(
+                                  'Inform new crop damage'.tr,
+                                  style: const TextStyle(
                                     fontSize: 30.0,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,
@@ -89,9 +90,9 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      const Text(
-                                        'Category*',
-                                        style: TextStyle(
+                                      Text(
+                                        "${'Damage Type'.tr}*",
+                                        style: const TextStyle(
                                           fontSize: 17,
                                           color: Colors.white,
                                         ),
@@ -115,15 +116,15 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                           builder: (_) {
                                             if (_.crops!.isNotEmpty) {
                                               return MultiSelectDialogField(
-                                                buttonText: const Text(
-                                                  "Select Category",
-                                                  style: TextStyle(
+                                                buttonText: Text(
+                                                  "Select Category".tr,
+                                                  style: const TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 16,
                                                   ),
                                                 ),
                                                 title:
-                                                    const Text('Select Type'),
+                                                    Text('Select Type'.tr),
                                                 items: _.crops!
                                                     .map((e) =>
                                                         MultiSelectItem(e, e))
@@ -148,6 +149,7 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                                           .map((e) =>
                                                               e.toString())
                                                           .toList();
+                                                  damageTypeController.updateDes(values.length);
                                                 },
                                               );
                                             } else {
@@ -177,9 +179,9 @@ class ReportIncident extends GetView<ReportIncidentController> {
                             const SizedBox(
                               height: 20,
                             ),
-                            const Text(
-                              "Affected Area (Acres)*",
-                              style: TextStyle(
+                            Text(
+                              "${"Affected Area (Acres)".tr}*",
+                              style: const TextStyle(
                                 fontSize: 18,
                               ),
                             ),
@@ -190,23 +192,23 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                 FilteringTextInputFormatter.allow(
                                     RegExp(r'(^\d*\.?\d*)')),
                               ],
-                              decoration: const InputDecoration(
-                                focusedBorder: UnderlineInputBorder(
+                              decoration: InputDecoration(
+                                focusedBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.black)),
-                                border: UnderlineInputBorder(
+                                border: const UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.grey)),
-                                contentPadding: EdgeInsets.only(
+                                contentPadding: const EdgeInsets.only(
                                     left: 15, bottom: 11, top: 11, right: 15),
-                                hintText: "Enter number of acres",
-                                hintStyle: TextStyle(fontSize: 15),
+                                hintText: "Enter number of acres".tr,
+                                hintStyle: const TextStyle(fontSize: 15),
                               ),
                             ),
                             const SizedBox(
                               height: 20,
                             ),
-                            const Text(
-                              "Description*",
-                              style: TextStyle(
+                            Text(
+                              "${"Description".tr}*",
+                              style: const TextStyle(
                                 fontSize: 18,
                               ),
                             ),
@@ -216,31 +218,31 @@ class ReportIncident extends GetView<ReportIncidentController> {
                               textInputAction: TextInputAction.newline,
                               minLines: 1,
                               maxLines: 5,
-                              decoration: const InputDecoration(
-                                focusedBorder: UnderlineInputBorder(
+                              decoration: InputDecoration(
+                                focusedBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.black)),
-                                border: UnderlineInputBorder(
+                                border: const UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.grey)),
-                                contentPadding: EdgeInsets.only(
+                                contentPadding: const EdgeInsets.only(
                                     left: 15, bottom: 11, top: 11, right: 15),
-                                hintText: "Describe the incident in details",
-                                hintStyle: TextStyle(fontSize: 15),
+                                hintText: "Describe the incident in details".tr,
+                                hintStyle: const TextStyle(fontSize: 15),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
                             const SizedBox(height: 20),
-                            const Text(
-                              "Upload Photos/ Videos*",
-                              style: TextStyle(
+                            Text(
+                              "${"Upload Photos/ Videos".tr}*",
+                              style: const TextStyle(
                                 fontSize: 18,
                               ),
                             ),
                             const SizedBox(height: 8),
-                            const Text(
-                              "Minimum of 3 evidences should be uploaded.",
-                              style: TextStyle(
+                            Text(
+                              "Minimum of 3 evidences should be uploaded".tr,
+                              style: const TextStyle(
                                 fontSize: 12,
                               ),
                             ),
@@ -254,9 +256,9 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                   ],
                                 ));
                               },
-                              label: const Text(
-                                'Photos/ Videos',
-                                style: TextStyle(
+                              label: Text(
+                                'Photos/ Videos'.tr,
+                                style: const TextStyle(
                                   fontSize: 15,
                                   color: Colors.black45,
                                 ),
@@ -275,14 +277,14 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                   if (controller.selectedCrops.isEmpty ||
                                       acresController.value.text.isEmpty ||
                                       descriptionController.value.text.isEmpty) {
-                                    Get.snackbar("Invalid Report", "Please fill all fields",
+                                    Get.snackbar("Invalid".tr, "Please fill all fields".tr,
                                         snackPosition: SnackPosition.BOTTOM,
                                         snackStyle: SnackStyle.FLOATING,
                                         backgroundColor: Colors.red);
                                   } else if (Get.find<CameraController>().medias!.length <
                                       3) {
-                                    Get.snackbar("Invalid Report",
-                                        "Please select at least 3 photos/videos",
+                                    Get.snackbar("Invalid".tr,
+                                        "Please select at least 3 photos/videos".tr,
                                         snackPosition: SnackPosition.BOTTOM,
                                         snackStyle: SnackStyle.FLOATING,
                                         backgroundColor: Colors.red);
@@ -294,6 +296,7 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                         descriptionController.text,
                                         Get.find<CameraController>().medias!);
                                   }
+
 
                                   if (controller.isLoading.value) {
                                     Get.dialog(
@@ -315,9 +318,9 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                           color: LightColors.kDarkGreen,
                                           borderRadius: BorderRadius.circular(30),
                                         ),
-                                        child: const Text(
-                                          'Create Complaint',
-                                          style: TextStyle(
+                                        child: Text(
+                                          'Create Complaint'.tr,
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w700,
                                               fontSize: 18),
@@ -353,14 +356,14 @@ class ReportIncident extends GetView<ReportIncidentController> {
         descriptionController.value.text.isNotEmpty ||
         Get.find<CameraController>().medias!.isNotEmpty) {
       Get.defaultDialog(
-        title: "Are you sure?",
-        middleText: "All changes will be lost",
+        title: "Are you sure?".tr,
+        middleText: "All changes will be lost".tr,
         actions: [
           ElevatedButton(
               onPressed: () {
                 Get.back();
               },
-              child: const Text("Cancel")),
+              child: Text("Cancel".tr)),
           const SizedBox(
             width: 10,
           ),
@@ -373,9 +376,9 @@ class ReportIncident extends GetView<ReportIncidentController> {
                 Get.back(closeOverlays: true);
                 controller.selectedCrops.clear();
               },
-              child: const Text(
-                "Confirm",
-                style: TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
+              child: Text(
+                "Confirm".tr,
+                style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
               )),
         ],
       );

@@ -20,13 +20,13 @@ class FarmerAccount extends GetWidget<UserController> {
           height: height * .2,
           imageName: 'assets/crop_damage.png',
           child: Column(
-            children: const <Widget>[
-              SizedBox(
+            children: <Widget>[
+              const SizedBox(
                 height: 40,
               ),
               Text(
-                'My Profile',
-                style: TextStyle(
+                'My Profile'.tr,
+                style: const TextStyle(
                   fontSize: 30.0,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
@@ -56,21 +56,21 @@ class FarmerAccount extends GetWidget<UserController> {
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            SizedBox(
+                          children: [
+                            const SizedBox(
                               width: 60,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.account_circle,
                               size: 35,
                               color: Color.fromARGB(255, 2, 70, 2),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
-                              "Personal Info",
-                              style: TextStyle(
+                              "Personal Info".tr,
+                              style: const TextStyle(
                                   color: Color.fromARGB(255, 2, 70, 2),
                                   fontFamily: "Poppins",
                                   fontSize: 20,
@@ -83,13 +83,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Name",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Name".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 100),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -111,13 +112,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("NIC",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("NIC".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 123),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -139,13 +141,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Email Address",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Email Address".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 33),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -167,13 +170,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Mobile Number",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Mobile Number".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 23),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -212,21 +216,21 @@ class FarmerAccount extends GetWidget<UserController> {
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            SizedBox(
+                          children: [
+                            const SizedBox(
                               width: 60,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.agriculture,
                               size: 35,
                               color: Color.fromARGB(255, 2, 70, 2),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
-                              "Farm Info",
-                              style: TextStyle(
+                              "Farm Info".tr,
+                              style: const TextStyle(
                                   color: Color.fromARGB(255, 2, 70, 2),
                                   fontFamily: "Poppins",
                                   fontSize: 20,
@@ -239,13 +243,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Farm Name",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Farm Name".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 55),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -267,13 +272,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Address",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Address".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 87),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -295,13 +301,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Reg. Number",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Reg. Number".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 49),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -340,21 +347,21 @@ class FarmerAccount extends GetWidget<UserController> {
                       children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            SizedBox(
+                          children: [
+                            const SizedBox(
                               width: 60,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.account_balance,
                               size: 35,
                               color: Color.fromARGB(255, 2, 70, 2),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Text(
-                              "Bank Details",
-                              style: TextStyle(
+                              "Bank Details".tr,
+                              style: const TextStyle(
                                   color: Color.fromARGB(255, 2, 70, 2),
                                   fontFamily: "Poppins",
                                   fontSize: 20,
@@ -367,13 +374,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Bank Name",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Bank Name".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 61),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(
@@ -395,13 +403,14 @@ class FarmerAccount extends GetWidget<UserController> {
                         ),
                         Row(
                           children: [
-                            const Text("Account Number",
-                                style: TextStyle(
+                            const SizedBox(width: 10),
+                            Text("Account Number".tr,
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Poppins",
                                     fontSize: 17)),
-                            const SizedBox(width: 12),
+                            const SizedBox(width: 20),
                             const Text(
                               ":  ",
                               style: TextStyle(

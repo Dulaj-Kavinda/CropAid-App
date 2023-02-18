@@ -3,38 +3,40 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../models/incident_status.dart';
+import '../../widgets/top_container.dart';
 
 class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
   const CompleteIncident({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/vegies-other.jpg"),
-                fit: BoxFit.cover,
-              ),
-            ),
-            height: 150,
-            width: double.infinity,
-            child: const Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Text(
-                    "Completed Incidents",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  )),
+          TopContainer(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+            width: width,
+            height: height * .2,
+            imageName: 'assets/crop_damage.png',
+            child: Column(
+              children: <Widget>[
+                const SizedBox(
+                  height: 40,
+                ),
+                Text(
+                  "Reviewed Incidents".tr,
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
             ),
           ),
           Expanded(
@@ -79,7 +81,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                     style: const TextStyle(
                                                         fontFamily:
                                                             "Poppins",
-                                                        fontSize: 18)),
+                                                        fontSize: 15)),
                                               ],
                                             ),
                                             Align(
@@ -90,7 +92,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                     .types!,
                                                 style: const TextStyle(
                                                     fontWeight: FontWeight.w400,
-                                                    fontSize: 15),
+                                                    fontSize: 16),
                                               ),
                                             ),
                                             Theme(
@@ -148,10 +150,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                           0, 0, 40, 0),
                                                       child: Row(
                                                         children: [
-                                                          const SizedBox(
+                                                          SizedBox(
                                                             child: Text(
-                                                                "Reviewed Date:",
-                                                                style: TextStyle(
+                                                                "${"Reviewed Date".tr}:",
+                                                                style: const TextStyle(
                                                                     color: Colors
                                                                         .black,
                                                                     fontWeight:
@@ -194,10 +196,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                           0, 0, 40, 0),
                                                       child: Row(
                                                         children: [
-                                                          const SizedBox(
+                                                          SizedBox(
                                                             child: Text(
-                                                                "Rejected Date:",
-                                                                style: TextStyle(
+                                                                "${"Rejected Date".tr}:",
+                                                                style: const TextStyle(
                                                                     color: Colors
                                                                         .black,
                                                                     fontWeight:
@@ -240,10 +242,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                           0, 0, 40, 0),
                                                       child: Row(
                                                         children: [
-                                                          const SizedBox(
+                                                          SizedBox(
                                                             child: Text(
-                                                                "Accepted Date:",
-                                                                style: TextStyle(
+                                                                "${"Accepted Date".tr}:",
+                                                                style: const TextStyle(
                                                                     color: Colors
                                                                         .black,
                                                                     fontWeight:
@@ -280,10 +282,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                           0, 0, 40, 0),
                                                       child: Row(
                                                         children: [
-                                                          const SizedBox(
+                                                          SizedBox(
                                                             child: Text(
-                                                                "Valued Amount:",
-                                                                style: TextStyle(
+                                                                "${"Amount Payed".tr}:",
+                                                                style: const TextStyle(
                                                                     color: Colors
                                                                         .black,
                                                                     fontWeight:
@@ -300,7 +302,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                     Alignment
                                                                         .topRight,
                                                                 child: Text(
-                                                                  "Rs. ${controller
+                                                                  "${"Rs.".tr} ${controller
                                                                           .completeIncidents[
                                                                               index]
                                                                           .amount}",
@@ -315,10 +317,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                         .fromLTRB(0, 0, 40, 0),
                                                     child: Row(
                                                       children: [
-                                                        const SizedBox(
+                                                        SizedBox(
                                                           child: Text(
-                                                              "Comments:",
-                                                              style: TextStyle(
+                                                              "${"Comments".tr}:",
+                                                              style: const TextStyle(
                                                                   color: Colors
                                                                       .black,
                                                                   fontWeight:
@@ -350,10 +352,10 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                         .fromLTRB(0, 0, 40, 0),
                                                     child: Row(
                                                       children: [
-                                                        const SizedBox(
+                                                        SizedBox(
                                                           child: Text(
-                                                              "Description:",
-                                                              style: TextStyle(
+                                                              "${"Description".tr}:",
+                                                              style: const TextStyle(
                                                                   color: Colors
                                                                       .black,
                                                                   fontWeight:
@@ -385,9 +387,9 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                         .fromLTRB(0, 0, 40, 0),
                                                     child: Row(
                                                       children: [
-                                                        const SizedBox(
-                                                          child: Text("Acres:",
-                                                              style: TextStyle(
+                                                        SizedBox(
+                                                          child: Text("${"Nr of Acres".tr}:",
+                                                              style: const TextStyle(
                                                                   color: Colors
                                                                       .black,
                                                                   fontWeight:

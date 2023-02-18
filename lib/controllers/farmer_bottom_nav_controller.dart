@@ -27,7 +27,7 @@ class FarmerBottomNavController extends GetxController {
     if (settings.name == 'farmerHome') {
       return GetPageRoute(
           settings: settings,
-          page: () => const FarmerHome(),
+          page: () => FarmerHome(),
           transition: Transition.noTransition);
     }
 
@@ -42,7 +42,7 @@ class FarmerBottomNavController extends GetxController {
     if (settings.name == 'farmerCompleteIncident') {
       return GetPageRoute(
           settings: settings,
-          page: () => const CompleteIncident(),
+          page: () => CompleteIncident(),
           binding: FarmerCompleteIncidentBinding(),
           transition: Transition.noTransition);
     }

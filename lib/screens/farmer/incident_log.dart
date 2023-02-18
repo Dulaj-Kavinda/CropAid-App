@@ -24,19 +24,19 @@ class IncidentLog extends GetWidget<IncidentLogController> {
             height: height * .2,
             imageName: 'assets/crop_damage.png',
             child: Column(
-              children: const <Widget>[
-                SizedBox(
+              children: <Widget>[
+                const SizedBox(
                   height: 40,
                 ),
                 Text(
-                  'My Incident Log',
-                  style: TextStyle(
+                  'My Incident Log'.tr,
+                  style: const TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
               ],
             ),
           ),
@@ -71,8 +71,8 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: [
-                                                const Text("Date Added: ",
-                                                    style: TextStyle(
+                                                Text("${"Date Added".tr}: ",
+                                                    style: const TextStyle(
                                                         fontFamily: "Poppins",
                                                         fontSize: 15)),
                                                 Text(
@@ -106,7 +106,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                 expandedCrossAxisAlignment:
                                                     CrossAxisAlignment.end,
                                                 tilePadding:
-                                                    EdgeInsets.only(right: 60),
+                                                    const EdgeInsets.only(right: 60),
                                                 title: ElevatedButton(
                                                   style:
                                                       ElevatedButton.styleFrom(
@@ -119,7 +119,7 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                                             15)),
                                                           ),
                                                           minimumSize:
-                                                              Size(100, 45),
+                                                              const Size(100, 45),
                                                           backgroundColor: controller
                                                                       .newIncidents[
                                                                           index]
@@ -157,10 +157,10 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                           0, 0, 40, 0),
                                                       child: Row(
                                                         children: [
-                                                          const SizedBox(
+                                                          SizedBox(
                                                             child: Text(
-                                                                "Reviewed Date:",
-                                                                style: TextStyle(
+                                                                "${"Reviewed Date".tr}:",
+                                                                style: const TextStyle(
                                                                     color: Colors
                                                                         .black,
                                                                     fontWeight:
@@ -197,10 +197,10 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         .fromLTRB(0, 0, 40, 0),
                                                     child: Row(
                                                       children: [
-                                                        const SizedBox(
+                                                        SizedBox(
                                                           child: Text(
-                                                              "Description:",
-                                                              style: TextStyle(
+                                                              "${"Description".tr}:",
+                                                              style: const TextStyle(
                                                                   color: Colors
                                                                       .black,
                                                                   fontWeight:
@@ -214,9 +214,11 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         const SizedBox(
                                                           width: 10,
                                                         ),
-                                                        Text(controller
-                                                            .newIncidents[index]
-                                                            .description!),
+                                                        Expanded(
+                                                          child: Text(controller
+                                                              .newIncidents[index]
+                                                              .description!),
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -225,10 +227,10 @@ class IncidentLog extends GetWidget<IncidentLogController> {
                                                         .fromLTRB(0, 0, 40, 0),
                                                     child: Row(
                                                       children: [
-                                                        const SizedBox(
+                                                        SizedBox(
                                                           child: Text(
-                                                              "Nr of Acres:",
-                                                              style: TextStyle(
+                                                              "${"Nr of Acres".tr}:",
+                                                              style: const TextStyle(
                                                                   color: Colors
                                                                       .black,
                                                                   fontWeight:
