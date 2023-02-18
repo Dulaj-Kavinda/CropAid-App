@@ -39,7 +39,7 @@ class IncidentController extends GetxController {
       String bankName, String comment, num amount, String address, String to) {
     Map paymentObject = {
       "sandbox": true,
-      "merchant_id": "1220017",
+      "merchant_id": "1222164",
       "notify_url": "https://ent13zfovoz7d.x.pipedream.net/",
       "order_id": id,
       "items": "Hello from Flutter!",

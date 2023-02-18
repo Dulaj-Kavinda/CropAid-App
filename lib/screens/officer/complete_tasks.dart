@@ -3,7 +3,10 @@ import 'package:get/get.dart';
 
 import '../../controllers/incident_controller.dart';
 import '../../models/incident_status.dart';
+import '../../widgets/top_container.dart';
 import '../common/theme.dart';
+import '../../widgets/back_button.dart';
+import '../../theme/light_colors.dart';
 
 class CompleteTasks extends StatelessWidget {
   CompleteTasks({Key? key}) : super(key: key);
@@ -15,23 +18,53 @@ class CompleteTasks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/officer-complete.jpg"),
-                fit: BoxFit.cover,
+          TopContainer(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+            width: width,
+            height: height * .2,
+            imageName: 'assets/crop_damage.png',
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: Column(
+                children: <Widget>[
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const <Widget>[
+                      Text(
+                        'Completed Incidents',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+
+                ],
               ),
             ),
-            height: 250,
-            width: double.infinity,
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          // Container(
+          //   alignment: Alignment.center,
+          //   decoration: const BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage("assets/officer-complete.jpg"),
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          //   height: 250,
+          //   width: double.infinity,
+          // ),
           Obx(
             () {
               if (incidentController.completeIncidents.isNotEmpty) {
@@ -43,6 +76,7 @@ class CompleteTasks extends StatelessWidget {
                           padding:
                               const EdgeInsets.fromLTRB(10.0, 0.0, 0, 10.0),
                           child: Card(
+                            color: LightColors.kLightBlue,
                             shadowColor: const Color.fromARGB(255, 6, 118, 182),
                             elevation: 5,
                             child: Padding(
@@ -96,7 +130,7 @@ class CompleteTasks extends StatelessWidget {
                                                   .completeIncidents[index]);
                                         },
                                         child: const Text(
-                                          "Info",
+                                          "Details",
                                           style: CropAidThemes.buttonTextTheme,
                                         ),
                                       ),
