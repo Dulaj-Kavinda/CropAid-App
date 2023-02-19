@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../theme/light_colors.dart';
+import '../../widgets/top_container.dart';
+
 class OfficerAccount extends StatelessWidget {
   OfficerAccount({Key? key}) : super(key: key);
 
@@ -27,106 +30,130 @@ class OfficerAccount extends StatelessWidget {
     phoneController.text = userController.user.phone!;
     nicController.text = userController.user.nic!;
 
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Align(
-        alignment: Alignment.center,
-        child: GestureDetector(
-          child: SingleChildScrollView(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Update Profile",
-                style: CropAidThemes.titleTextTheme,
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              ImageProfile(context),
-              const SizedBox(
-                height: 25,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
-                child: Column(
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TopContainer(
+                  padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
+                  width: width,
+                  height: height * .2,
+                  imageName: 'assets/crop_damage.png',
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Column(
+                      children: <Widget>[
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const <Widget>[
+                            Text(
+                              'Update Profile',
+                              style: TextStyle(
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+
+                      ],
+                    ),
+                  ),
+                ),
+                // ImageProfile(context),
+                const SizedBox(
+                  height: 25,
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        _buildTextFormField("Name", nameController, false),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        _buildTextFormField(
+                            "Phone Number", phoneController, true),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        _buildTextFormField("NIC Number", nicController, false),
+                      ]
+                  ),
+                ),
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      _buildTextFormField("Name", nameController, false),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      _buildTextFormField(
-                          "Phone Number", phoneController, true),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      _buildTextFormField("NIC Number", nicController, false),
-                    ]),
-              ),
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(primary: Colors.grey),
+                    children: [
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(primary: Colors.grey),
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: const Text(
+                            "Cancel",
+                            style: CropAidThemes.buttonTextTheme,
+                          )),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.green),
                         onPressed: () {
-                          Get.back();
+                          if (GetUtils.isPhoneNumber(phoneController.text)) {
+                            userController.updateOfficer(
+                                nameController.text,
+                                phoneController.text,
+                                nicController.text,
+                                userController.user.profilePicRef!);
+                          } else {
+                            Snackbar.showError(
+                                "Please enter a valid phone number");
+                          }
+                          if (userController.isLoading.value) {
+                            Get.dialog(
+                                const Center(child: CircularProgressIndicator()),
+                                barrierDismissible: false);
+                          }
                         },
                         child: const Text(
-                          "Cancel",
+                          "Submit",
                           style: CropAidThemes.buttonTextTheme,
-                        )),
-                    ElevatedButton(
-                      child: const Text(
-                        "Submit",
-                        style: CropAidThemes.buttonTextTheme,
-                      ),
-                      style: ElevatedButton.styleFrom(primary: Colors.green),
-                      onPressed: () {
-                        if (GetUtils.isPhoneNumber(phoneController.text)) {
-                          userController.updateOfficer(
-                              nameController.text,
-                              phoneController.text,
-                              nicController.text,
-                              userController.user.profilePicRef!);
-                        } else {
-                          Snackbar.showError(
-                              "Please enter a valid phone number");
-                        }
-                        if (userController.isLoading.value) {
-                          Get.dialog(
-                              const Center(child: CircularProgressIndicator()),
-                              barrierDismissible: false);
-                        }
-                      },
-                    )
-                  ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          )),
-        ),
-      ),
+              ],
+            ),
+      )
     );
+
   }
 
-  TextFormField _buildTextFormField(
-      String labelText, TextEditingController controller, bool isPhonenumber) {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: labelText,
-        labelStyle: const TextStyle(
-            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+  TextFieldContainer _buildTextFormField(String labelText, TextEditingController controller, bool isPhonenumber) {
+    return TextFieldContainer(
+      child: TextFormField(
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          labelText: labelText,
+          labelStyle: const TextStyle(
+              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+        ),
+        keyboardType: isPhonenumber ? TextInputType.phone : TextInputType.text,
+        controller: controller,
       ),
-      keyboardType: isPhonenumber ? TextInputType.phone : TextInputType.text,
-      controller: controller,
     );
   }
 
@@ -215,5 +242,29 @@ class OfficerAccount extends StatelessWidget {
 
       Get.back();
     }
+  }
+}
+
+
+
+class TextFieldContainer extends StatelessWidget {
+  final Widget child;
+  const TextFieldContainer({super.key,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      width: size.width * 0.8,
+      decoration: BoxDecoration(
+        color: LightColors.kFormBlue,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: child,
+    );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/user_controller.dart';
+import '../../theme/light_colors.dart';
 
 class FarmerRegistration extends GetWidget<UserController> {
   FarmerRegistration({Key? key}) : super(key: key);
@@ -28,30 +29,35 @@ class FarmerRegistration extends GetWidget<UserController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
-                height: 25,
+                height: 10,
               ),
               const Text(
-                "Complete Profile",
+                "Complete Your Profile",
                 style: TextStyle(
                     color: Color.fromARGB(255, 2, 70, 2),
                     fontFamily: "Poppins",
+                    fontWeight: FontWeight.w500,
                     fontSize: 20),
               ),
               const SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(5.0, 0, 0, 5.0),
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  color: LightColors.kLightGreen2,
                   shadowColor: const Color.fromARGB(255, 2, 105, 48),
                   elevation: 5,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                    padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           const Align(
-                            alignment: Alignment.topRight,
+                            alignment: Alignment.center,
                             child: Text(
                               "Personal Details",
                               style: TextStyle(
@@ -101,6 +107,34 @@ class FarmerRegistration extends GetWidget<UserController> {
                               }
                             },
                           ),
+                          TextFormField(
+                            decoration:
+                            const InputDecoration(hintText: "Bank Name"),
+                            controller: bankNameController,
+                            autovalidateMode:
+                            AutovalidateMode.onUserInteraction,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Bank name is required";
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                                hintText: "Account Number"),
+                            controller: accountNumController,
+                            autovalidateMode:
+                            AutovalidateMode.onUserInteraction,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Account number is required";
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
                         ]),
                   ),
                 ),
@@ -109,17 +143,21 @@ class FarmerRegistration extends GetWidget<UserController> {
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(5.0, 0, 0, 5.0),
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  color: LightColors.kLightGreen2,
                   shadowColor: const Color.fromARGB(255, 2, 105, 48),
                   elevation: 5,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                    padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           const Align(
-                            alignment: Alignment.topRight,
+                            alignment: Alignment.center,
                             child: Text(
                               "Farm Details",
                               style: TextStyle(
@@ -176,57 +214,58 @@ class FarmerRegistration extends GetWidget<UserController> {
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(5.0, 0, 0, 5.0),
-                child: Card(
-                  shadowColor: const Color.fromARGB(255, 2, 105, 48),
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          const Align(
-                            alignment: Alignment.topRight,
-                            child: Text(
-                              "Bank Details",
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 2, 70, 2),
-                                  fontFamily: "Poppins"),
-                            ),
-                          ),
-                          TextFormField(
-                            decoration:
-                                const InputDecoration(hintText: "Bank Name"),
-                            controller: bankNameController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Bank name is required";
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                                hintText: "Account Number"),
-                            controller: accountNumController,
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Account number is required";
-                              } else {
-                                return null;
-                              }
-                            },
-                          ),
-                        ]),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+              //   child: Card(
+              //     color: LightColors.kLightGreen2,
+              //     shadowColor: const Color.fromARGB(255, 2, 105, 48),
+              //     elevation: 5,
+              //     child: Padding(
+              //       padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+              //       child: Column(
+              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //           children: <Widget>[
+              //             const Align(
+              //               alignment: Alignment.center,
+              //               child: Text(
+              //                 "Bank Details",
+              //                 style: TextStyle(
+              //                     color: Color.fromARGB(255, 2, 70, 2),
+              //                     fontFamily: "Poppins"),
+              //               ),
+              //             ),
+              //             TextFormField(
+              //               decoration:
+              //                   const InputDecoration(hintText: "Bank Name"),
+              //               controller: bankNameController,
+              //               autovalidateMode:
+              //                   AutovalidateMode.onUserInteraction,
+              //               validator: (value) {
+              //                 if (value == null || value.isEmpty) {
+              //                   return "Bank name is required";
+              //                 } else {
+              //                   return null;
+              //                 }
+              //               },
+              //             ),
+              //             TextFormField(
+              //               decoration: const InputDecoration(
+              //                   hintText: "Account Number"),
+              //               controller: accountNumController,
+              //               autovalidateMode:
+              //                   AutovalidateMode.onUserInteraction,
+              //               validator: (value) {
+              //                 if (value == null || value.isEmpty) {
+              //                   return "Account number is required";
+              //                 } else {
+              //                   return null;
+              //                 }
+              //               },
+              //             ),
+              //           ]),
+              //     ),
+              //   ),
+              // ),
               const SizedBox(
                 height: 20,
               ),

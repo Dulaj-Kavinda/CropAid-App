@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/auth_controller.dart';
+import '../../controllers/user_controller.dart';
 import '../../theme/light_colors.dart';
 import '../../widgets/top_container.dart';
 
@@ -13,6 +14,9 @@ class OfficerHome extends GetWidget<AuthController> {
 
   IncidentController incidentController =
       Get.put<IncidentController>(IncidentController());
+
+  UserController userController = Get.find<UserController>();
+
 
   int count = 0;
 
@@ -31,17 +35,46 @@ class OfficerHome extends GetWidget<AuthController> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      const Icon(Icons.menu,
-                          color: LightColors.kDarkBlue, size: 30.0),
+                      // const Icon(Icons.menu,
+                      //     color: LightColors.kDarkBlue, size: 30.0),
                       IconButton(
                           onPressed: () {
-                            Get.back();
-                            controller.signOut();
+                            Get.defaultDialog(
+                              title: "Are you sure?".tr,
+                              middleText: " ",
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: Text("Cancel".tr)),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
+                                      side: const BorderSide(
+                                          width: 1.0, color: Color.fromARGB(255, 2, 70, 2)
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Get.back();
+                                      controller.signOut();
+                                    },
+                                    child: Text(
+                                      "Confirm".tr,
+                                      style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
+                                    )
+                                ),
+                              ],
+                            );
+
                           },
                           icon: const Icon(Icons.logout,
-                              color: LightColors.kDarkBlue, size: 25.0)),
+                              color: LightColors.kDarkBlue, size: 30.0)
+                      ),
                     ],
                   ),
                   Padding(
@@ -58,24 +91,24 @@ class OfficerHome extends GetWidget<AuthController> {
                             backgroundColor: LightColors.kBlue,
                             radius: 72.0,
                             backgroundImage: AssetImage(
-                              'assets/avatar.png',
-                            ),
+                            'assets/officer.png',
+                          ),
                           ),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const <Widget>[
+                          children:  <Widget>[
                             Text(
-                              'Yasindu',
+                              userController.user.name!,
                               textAlign: TextAlign.start,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 30.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'Officer GV',
                               textAlign: TextAlign.start,
                               style: TextStyle(

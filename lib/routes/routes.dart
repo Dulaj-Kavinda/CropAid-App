@@ -16,8 +16,7 @@ class GetPages {
     return <GetPage>[
       GetPage(
           name: "/",
-          page: () => const SplashScreen(),
-          binding: SplashBinding()),
+          page: () => const Root(), transition: Transition.zoom),
       GetPage(
           name: "/root", page: () => const Root(), transition: Transition.zoom),
       GetPage(
