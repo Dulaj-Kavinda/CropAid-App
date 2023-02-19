@@ -41,11 +41,40 @@ class OfficerHome extends GetWidget<AuthController> {
                           color: LightColors.kDarkBlue, size: 30.0),
                       IconButton(
                           onPressed: () {
-                            Get.back();
-                            controller.signOut();
+                            Get.defaultDialog(
+                              title: "Are you sure?".tr,
+                              middleText: " ",
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: Text("Cancel".tr)),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
+                                      side: const BorderSide(
+                                          width: 1.0, color: Color.fromARGB(255, 2, 70, 2)
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Get.back();
+                                      controller.signOut();
+                                    },
+                                    child: Text(
+                                      "Confirm".tr,
+                                      style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
+                                    )
+                                ),
+                              ],
+                            );
+
                           },
                           icon: const Icon(Icons.logout,
-                              color: LightColors.kDarkBlue, size: 25.0)),
+                              color: LightColors.kDarkBlue, size: 30.0)
+                      ),
                     ],
                   ),
                   Padding(
