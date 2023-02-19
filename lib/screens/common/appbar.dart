@@ -17,32 +17,32 @@ class CropAidAppBar extends GetWidget<AuthController>
     return AppBar(
         title: const Padding(
           padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
-          child: Text(
-            'Cropify',
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w100,
-                fontSize: 25,
-                fontFamily: "Lobster",
-                shadows: [
-                  Shadow(
-                      // bottomLeft
-                      offset: Offset(-1.5, -1.5),
-                      color: Color.fromARGB(255, 75, 53, 45)),
-                  Shadow(
-                      // bottomRight
-                      offset: Offset(1.5, -1.5),
-                      color: Color.fromARGB(255, 75, 53, 45)),
-                  Shadow(
-                      // topRight
-                      offset: Offset(1.5, 1.5),
-                      color: Color.fromARGB(255, 75, 53, 45)),
-                  Shadow(
-                      // topLeft
-                      offset: Offset(-1.5, 1.5),
-                      color: Color.fromARGB(255, 75, 53, 45)),
-                ]),
-          ),
+          // child: Text(
+          //   'CropAid',
+          //   style: TextStyle(
+          //       color: Colors.white,
+          //       fontWeight: FontWeight.w100,
+          //       fontSize: 25,
+          //       fontFamily: "Lobster",
+          //       shadows: [
+          //         Shadow(
+          //             // bottomLeft
+          //             offset: Offset(-1.5, -1.5),
+          //             color: Color.fromARGB(255, 75, 53, 45)),
+          //         Shadow(
+          //             // bottomRight
+          //             offset: Offset(1.5, -1.5),
+          //             color: Color.fromARGB(255, 75, 53, 45)),
+          //         Shadow(
+          //             // topRight
+          //             offset: Offset(1.5, 1.5),
+          //             color: Color.fromARGB(255, 75, 53, 45)),
+          //         Shadow(
+          //             // topLeft
+          //             offset: Offset(-1.5, 1.5),
+          //             color: Color.fromARGB(255, 75, 53, 45)),
+          //       ]),
+          // ),
         ),
         backgroundColor: const Color.fromARGB(255, 2, 70, 2),
         actions: visible

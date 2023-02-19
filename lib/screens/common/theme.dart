@@ -25,13 +25,13 @@ class CropAidThemes {
       fontFamily: "Poppins",
       fontSize: 20,
       // fontWeight: FontWeight.bold
-      fontWeight: FontWeight.w600
+      fontWeight: FontWeight.w500
   );
 
   static const subTextTheme = TextStyle(
       fontSize: 15,
       // fontWeight: FontWeight.bold,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       color: Color.fromARGB(255, 97, 97, 99),
       fontFamily: "Poppins"
   );
@@ -39,7 +39,7 @@ class CropAidThemes {
   static const mainTextTheme = TextStyle(
       fontSize: 15,
       // fontWeight: FontWeight.bold,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w500,
       color: Color.fromARGB(255, 8, 8, 56),
       fontFamily: "Poppins");
 
