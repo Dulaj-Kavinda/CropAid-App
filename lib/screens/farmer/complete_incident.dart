@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../models/incident_status.dart';
+import '../../theme/light_colors.dart';
 import '../../widgets/top_container.dart';
 
 class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
@@ -56,6 +57,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                   padding: const EdgeInsets.fromLTRB(
                                       10.0, 0.0, 0, 10.0),
                                   child: Card(
+                                    color: Colors.grey.shade300,
                                     shadowColor:
                                         const Color.fromARGB(255, 37, 87, 39),
                                     elevation: 5,
@@ -67,7 +69,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                           children: <Widget>[
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.end,
+                                                  MainAxisAlignment.start,
                                               children: [
                                                 Text(
                                                     controller
@@ -91,7 +93,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                     .completeIncidents[index]
                                                     .types!,
                                                 style: const TextStyle(
-                                                    fontWeight: FontWeight.w400,
+                                                    fontWeight: FontWeight.w600,
                                                     fontSize: 16),
                                               ),
                                             ),
@@ -100,18 +102,27 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                   dividerColor:
                                                       Colors.transparent),
                                               child: ExpansionTile(
-                                                tilePadding: EdgeInsets.zero,
+                                                tilePadding: const EdgeInsets.only(right: 60),
                                                 title: ElevatedButton(
                                                   style: ElevatedButton.styleFrom(
+                                                      shape:
+                                                      const RoundedRectangleBorder(
+                                                        borderRadius:
+                                                        BorderRadius
+                                                            .all(Radius
+                                                            .circular(
+                                                            15)),
+                                                      ),
+                                                      minimumSize:
+                                                      const Size(100, 45),
                                                       primary: controller
                                                                   .completeIncidents[
                                                                       index]
                                                                   .status ==
                                                               IncidentStatus
                                                                   .COMPLETED
-                                                          ? const Color
-                                                                  .fromARGB(255,
-                                                              105, 241, 105)
+                                                          ? LightColors
+                                                          .kLightGreen
                                                           : const Color
                                                                   .fromARGB(221,
                                                               238, 84, 38)),
@@ -162,7 +173,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                     fontFamily:
                                                                         "Poppins",
                                                                     fontSize:
-                                                                        18)),
+                                                                        15)),
                                                           ),
                                                           Expanded(
                                                             child: Align(
@@ -208,7 +219,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                     fontFamily:
                                                                         "Poppins",
                                                                     fontSize:
-                                                                        18)),
+                                                                        15)),
                                                           ),
                                                           Expanded(
                                                             child: Align(
@@ -254,7 +265,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                     fontFamily:
                                                                         "Poppins",
                                                                     fontSize:
-                                                                        18)),
+                                                                        15)),
                                                           ),
                                                           Expanded(
                                                             child: Align(
@@ -294,7 +305,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                     fontFamily:
                                                                         "Poppins",
                                                                     fontSize:
-                                                                        18)),
+                                                                        15)),
                                                           ),
                                                           Expanded(
                                                             child: Align(
@@ -329,7 +340,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                   fontFamily:
                                                                       "Poppins",
                                                                   fontSize:
-                                                                      18)),
+                                                                      15)),
                                                         ),
                                                         const SizedBox(
                                                           width: 20,
@@ -364,7 +375,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                   fontFamily:
                                                                       "Poppins",
                                                                   fontSize:
-                                                                      18)),
+                                                                      15)),
                                                         ),
                                                         const SizedBox(
                                                           width: 20,
@@ -398,7 +409,7 @@ class CompleteIncident extends GetWidget<FarmerCompleteIncidentController> {
                                                                   fontFamily:
                                                                       "Poppins",
                                                                   fontSize:
-                                                                      18)),
+                                                                      15)),
                                                         ),
                                                         const SizedBox(
                                                           width: 20,

@@ -229,10 +229,7 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                 hintStyle: const TextStyle(fontSize: 15),
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 30),
                             Text(
                               "${"Upload Photos/ Videos".tr}*",
                               style: const TextStyle(

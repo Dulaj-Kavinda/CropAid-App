@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
-
+import '../../controllers/user_controller.dart';
 import '../../theme/light_colors.dart';
 import '../../widgets/task_column.dart';
 import '../../widgets/top_container.dart';
@@ -9,43 +9,49 @@ import '../../widgets/top_container.dart';
 class FarmerHome extends GetWidget<AuthController> {
   FarmerHome({Key? key}) : super(key: key);
 
-  final List locale =[
-    {'name':'ENGLISH','locale': const Locale('en','US')},
-    {'name':'සිංහල','locale': const Locale('si','LK')},
+  final List locale = [
+    {'name': 'ENGLISH', 'locale': const Locale('en', 'US')},
+    {'name': 'සිංහල', 'locale': const Locale('si', 'LK')},
   ];
 
-  updateLanguage(Locale locale){
+  updateLanguage(Locale locale) {
     Get.back();
     Get.updateLocale(locale);
   }
 
-  buildLanguageDialog(BuildContext context){
-    showDialog(context: context,
-        builder: (builder){
+  UserController userController = Get.find<UserController>();
+
+  buildLanguageDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (builder) {
           return AlertDialog(
             title: const Text('Choose Your Language'),
-            content: Container(
+            content: SizedBox(
               width: double.maxFinite,
               child: ListView.separated(
                   shrinkWrap: true,
-                  itemBuilder: (context,index){
+                  itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: GestureDetector(child: Text(locale[index]['name']),onTap: (){
-                        print(locale[index]['name']);
-                        updateLanguage(locale[index]['locale']);
-                      },),
+                      child: GestureDetector(
+                        child: Text(locale[index]['name']),
+                        onTap: () {
+                          print(locale[index]['name']);
+                          updateLanguage(locale[index]['locale']);
+                        },
+                      ),
                     );
-                  }, separatorBuilder: (context,index){
-                return const Divider(
-                  color: Colors.blue,
-                );
-              }, itemCount: locale.length
-              ),
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      color: Colors.blue,
+                    );
+                  },
+                  itemCount: locale.length),
             ),
           );
-        }
-    );
+        });
   }
 
   @override
@@ -73,8 +79,34 @@ class FarmerHome extends GetWidget<AuthController> {
                               color: LightColors.kDarkBlue, size: 30.0)),
                       IconButton(
                           onPressed: () {
-                            Get.back();
-                            controller.signOut();
+                            Get.defaultDialog(
+                              title: "Are you sure?".tr,
+                              middleText: " ",
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: Text("Cancel".tr)),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
+                                      side: const BorderSide(
+                                          width: 1.0, color: Color.fromARGB(255, 2, 70, 2)),
+                                    ),
+                                    onPressed: () {
+                                      Get.back();
+                                      controller.signOut();
+                                    },
+                                    child: Text(
+                                      "Confirm".tr,
+                                      style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
+                                    )),
+                              ],
+                            );
+
                           },
                           icon: const Icon(Icons.logout,
                               color: LightColors.kDarkBlue, size: 30.0)),
@@ -100,23 +132,14 @@ class FarmerHome extends GetWidget<AuthController> {
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const <Widget>[
+                          children: <Widget>[
                             Text(
-                              'John Amex',
+                              userController.user.name!,
                               textAlign: TextAlign.start,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 30.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                            Text(
-                              'Banana Farmer',
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
