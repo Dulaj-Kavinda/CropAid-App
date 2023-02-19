@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/farmer_bottom_nav_controller.dart';
-import '../common/appbar.dart';
 
 class FarmerHomeRoot extends GetView<FarmerBottomNavController> {
   FarmerHomeRoot({Key? key}) : super(key: key);

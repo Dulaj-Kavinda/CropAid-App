@@ -1,13 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
-
+import '../../controllers/user_controller.dart';
 import '../../theme/light_colors.dart';
 import '../../widgets/task_column.dart';
 import '../../widgets/top_container.dart';
 
 class FarmerHome extends GetWidget<AuthController> {
-  const FarmerHome({Key? key}) : super(key: key);
+  FarmerHome({Key? key}) : super(key: key);
+
+  final List locale = [
+    {'name': 'ENGLISH', 'locale': const Locale('en', 'US')},
+    {'name': 'සිංහල', 'locale': const Locale('si', 'LK')},
+  ];
+
+  updateLanguage(Locale locale) {
+    Get.back();
+    Get.updateLocale(locale);
+  }
+
+  UserController userController = Get.find<UserController>();
+
+  buildLanguageDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (builder) {
+          return AlertDialog(
+            title: const Text('Choose Your Language'),
+            content: SizedBox(
+              width: double.maxFinite,
+              child: ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        child: Text(locale[index]['name']),
+                        onTap: () {
+                          print(locale[index]['name']);
+                          updateLanguage(locale[index]['locale']);
+                        },
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      color: Colors.blue,
+                    );
+                  },
+                  itemCount: locale.length),
+            ),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +71,45 @@ class FarmerHome extends GetWidget<AuthController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      const Icon(Icons.menu,
-                          color: LightColors.kDarkBlue, size: 30.0),
                       IconButton(
                           onPressed: () {
-                            Get.back();
-                            controller.signOut();
+                            buildLanguageDialog(context);
+                          },
+                          icon: const Icon(Icons.language,
+                              color: LightColors.kDarkBlue, size: 30.0)),
+                      IconButton(
+                          onPressed: () {
+                            Get.defaultDialog(
+                              title: "Are you sure?".tr,
+                              middleText: " ",
+                              actions: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: Text("Cancel".tr)),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
+                                      side: const BorderSide(
+                                          width: 1.0, color: Color.fromARGB(255, 2, 70, 2)),
+                                    ),
+                                    onPressed: () {
+                                      Get.back();
+                                      controller.signOut();
+                                    },
+                                    child: Text(
+                                      "Confirm".tr,
+                                      style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
+                                    )),
+                              ],
+                            );
+
                           },
                           icon: const Icon(Icons.logout,
-                              color: LightColors.kDarkBlue, size: 25.0)),
+                              color: LightColors.kDarkBlue, size: 30.0)),
                     ],
                   ),
                   Padding(
@@ -57,23 +132,14 @@ class FarmerHome extends GetWidget<AuthController> {
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const <Widget>[
+                          children: <Widget>[
                             Text(
-                              'John Amex',
+                              userController.user.name!,
                               textAlign: TextAlign.start,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 30.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                            Text(
-                              'Banana Farmer',
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
@@ -97,9 +163,9 @@ class FarmerHome extends GetWidget<AuthController> {
                       Icons.add,
                       size: 40,
                     ),
-                    label: const Text(
-                      "ADD NEW CROP DAMAGE",
-                      style: TextStyle(
+                    label: Text(
+                      'ADD NEW CROP DAMAGE'.tr,
+                      style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 20,
                       ),
@@ -121,29 +187,29 @@ class FarmerHome extends GetWidget<AuthController> {
                         TaskColumn(
                           icon: Icons.blur_circular,
                           iconBackgroundColor: LightColors.kDarkYellow,
-                          title: 'New Incidents',
-                          subtitle: '1 incident(s) now.',
+                          title: '${'New'.tr} ${'Incidents'.tr}',
+                          subtitle: '1 ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.check_circle_outline,
                           iconBackgroundColor: LightColors.kBlue,
-                          title: 'In-Progress Incidents',
-                          subtitle: '18 incident(s) now.',
+                          title: '${'In-Progress'.tr} ${'Incidents'.tr}',
+                          subtitle: '15 ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.approval_outlined,
                           iconBackgroundColor: LightColors.kLightGreen,
-                          title: 'Approved Incidents',
-                          subtitle: '11 incident(s) now.',
+                          title: '${'Approved'.tr} ${'Incidents'.tr}',
+                          subtitle: '7 ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.cancel_outlined,
                           iconBackgroundColor: LightColors.kRed,
-                          title: 'Rejected Incidents',
-                          subtitle: '7 incident(s) now.',
+                          title: '${'Rejected'.tr} ${'Incidents'.tr}',
+                          subtitle: '3 ${'incident(s)'.tr}',
                         ),
                       ],
                     ),
