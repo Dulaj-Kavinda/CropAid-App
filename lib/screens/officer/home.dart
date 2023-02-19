@@ -35,10 +35,10 @@ class OfficerHome extends GetWidget<AuthController> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      const Icon(Icons.menu,
-                          color: LightColors.kDarkBlue, size: 30.0),
+                      // const Icon(Icons.menu,
+                      //     color: LightColors.kDarkBlue, size: 30.0),
                       IconButton(
                           onPressed: () {
                             Get.defaultDialog(
