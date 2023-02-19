@@ -11,7 +11,7 @@
         tools:replace="android:label"
         android:label="CropAid"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/cropaid_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

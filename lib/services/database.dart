@@ -268,4 +268,50 @@ class Database {
       return false;
     }
   }
+
+  getNewIncidentCount(var userId) async {
+    var query = _firestore
+        .collection("incidents")
+        .where('user.userId', isEqualTo: userId)
+        .where('status', whereIn: ["NEW"]);
+    var snapshot = await query.get();
+    int count = snapshot.size;
+    print(' New Records are $count');
+    return count;
+  }
+
+  getInprogressIncidentCount(var userId) async {
+    var query = _firestore
+        .collection("incidents")
+        .where('user.userId', isEqualTo: userId)
+        .where('status', whereIn: ["IN-PROGRESS"]);
+    var snapshot = await query.get();
+    int count = snapshot.size;
+    print(' Progress Records are $count');
+    return count;
+  }
+
+  getCompletedIncidentCount(var userId) async {
+    var query = _firestore
+        .collection("incidents")
+        .where('user.userId', isEqualTo: userId)
+        .where('status', whereIn: ["COMPLETED"]);
+    var snapshot = await query.get();
+    int count = snapshot.size;
+    print(' Completed Records are $count');
+    return count;
+  }
+
+  getRejectedIncidentCount(var userId) async {
+    var query = _firestore
+        .collection("incidents")
+        .where('user.userId', isEqualTo: userId)
+        .where('status', whereIn: ["REJECTED"]);
+    var snapshot = await query.get();
+    int count = snapshot.size;
+    print(' Rejected Records are $count');
+    return count;
+  }
+
+
 }

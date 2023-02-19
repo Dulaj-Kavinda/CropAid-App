@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../controllers/user_controller.dart';
+import '../../services/database.dart';
 import '../../theme/light_colors.dart';
 import '../../widgets/task_column.dart';
 import '../../widgets/top_container.dart';
@@ -9,10 +10,12 @@ import '../../widgets/top_container.dart';
 class FarmerHome extends GetWidget<AuthController> {
   FarmerHome({Key? key}) : super(key: key);
 
+
   final List locale = [
     {'name': 'ENGLISH', 'locale': const Locale('en', 'US')},
     {'name': 'සිංහල', 'locale': const Locale('si', 'LK')},
   ];
+
 
   updateLanguage(Locale locale) {
     Get.back();
@@ -20,6 +23,20 @@ class FarmerHome extends GetWidget<AuthController> {
   }
 
   UserController userController = Get.find<UserController>();
+
+  var newIncidentCount;
+  var inProgressIncidentCount;
+  var completedIncidentCount;
+  var rejectedIncidentCount;
+
+  getCounts() async {
+    newIncidentCount=(await Database().getNewIncidentCount(userController.user.id));
+    inProgressIncidentCount=(await Database().getInprogressIncidentCount(userController.user.id));
+    completedIncidentCount=(await Database().getCompletedIncidentCount(userController.user.id));
+    rejectedIncidentCount=(await Database().getRejectedIncidentCount(userController.user.id));
+  }
+
+
 
   buildLanguageDialog(BuildContext context) {
     showDialog(
@@ -57,6 +74,12 @@ class FarmerHome extends GetWidget<AuthController> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
+    getCounts();
+
+
+    //int newIncidentCount=Database().getNewIncidentCount(userController.user.id);
+
     return Scaffold(
       body: Column(
         children: [
@@ -188,28 +211,28 @@ class FarmerHome extends GetWidget<AuthController> {
                           icon: Icons.blur_circular,
                           iconBackgroundColor: LightColors.kDarkYellow,
                           title: '${'New'.tr} ${'Incidents'.tr}',
-                          subtitle: '1 ${'incident(s)'.tr}',
+                          subtitle: '${newIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.check_circle_outline,
                           iconBackgroundColor: LightColors.kBlue,
                           title: '${'In-Progress'.tr} ${'Incidents'.tr}',
-                          subtitle: '15 ${'incident(s)'.tr}',
+                          subtitle: '${inProgressIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.approval_outlined,
                           iconBackgroundColor: LightColors.kLightGreen,
-                          title: '${'Approved'.tr} ${'Incidents'.tr}',
-                          subtitle: '7 ${'incident(s)'.tr}',
+                          title: '${'Completed'.tr} ${'Incidents'.tr}',
+                          subtitle: '${completedIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.cancel_outlined,
                           iconBackgroundColor: LightColors.kRed,
                           title: '${'Rejected'.tr} ${'Incidents'.tr}',
-                          subtitle: '3 ${'incident(s)'.tr}',
+                          subtitle: '${rejectedIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                       ],
                     ),
