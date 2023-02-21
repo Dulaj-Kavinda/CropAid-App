@@ -472,6 +472,7 @@ class IncidentInfo extends GetWidget<AuthController>  {
     Get.defaultDialog(
         title: "",
         radius: 10,
+        backgroundColor: LightColors.kLightBlue,
         content: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -525,7 +526,7 @@ class IncidentInfo extends GetWidget<AuthController>  {
                     incidentController.setStatus(incident.id!,
                         IncidentStatus.REJECTED, commentController.text, 0.0);
                   },
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                  style: ElevatedButton.styleFrom(primary: LightColors.kDarkBlue),
                   child: const Text(
                     "Confirm",
                     style: TextStyle(
@@ -546,6 +547,7 @@ class IncidentInfo extends GetWidget<AuthController>  {
     Get.defaultDialog(
         title: "",
         radius: 10,
+        backgroundColor: LightColors.kLightBlue,
         content: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -624,7 +626,7 @@ class IncidentInfo extends GetWidget<AuthController>  {
                         incident.user!.fcmToken!);
                     Get.back();
                   },
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                  style: ElevatedButton.styleFrom(primary: LightColors.kDarkBlue),
                   child: const Text(
                     "Confirm",
                     style: TextStyle(
