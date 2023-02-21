@@ -58,6 +58,7 @@ dependencies:
   cloud_functions_web: ^4.2.9
   flutter_svg: ^1.0.0
   google_fonts: ^4.0.3
+  native_exif: ^0.4.0
 
 dev_dependencies:
   flutter_test:

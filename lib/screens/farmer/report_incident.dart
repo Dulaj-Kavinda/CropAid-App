@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:multi_select_flutter/util/multi_select_list_type.dart';
+import 'package:native_exif/native_exif.dart';
 import '../../controllers/damage_type_controller.dart';
+import '../../models/media.dart';
 import '../../theme/light_colors.dart';
 import '../../widgets/top_container.dart';
 import 'media_picker.dart';
@@ -270,7 +272,18 @@ class ReportIncident extends GetView<ReportIncidentController> {
                             const SizedBox(height: 10),
                             Center(
                               child: GestureDetector(
-                                onTap: () {
+                                onTap: () async {
+                                  List<DateTime>? dateTimeList = <DateTime>[];
+                                  Exif exif;
+                                  for( Media media in Get.find<CameraController>().medias!){
+                                    exif = await Exif.fromPath(media.file.path);
+                                    DateTime? shootingDate;
+                                    shootingDate = await exif.getOriginalDate();
+                                    if(shootingDate != null){
+                                      dateTimeList?.add(shootingDate!);
+                                    }
+                                    print("shooting date ----- ${shootingDate}");
+                                  }
                                   if (controller.selectedCrops.isEmpty ||
                                       acresController.value.text.isEmpty ||
                                       descriptionController.value.text.isEmpty) {
@@ -285,6 +298,12 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                         snackPosition: SnackPosition.BOTTOM,
                                         snackStyle: SnackStyle.FLOATING,
                                         backgroundColor: Colors.red);
+                                  }else if(checkRecentness(dateTimeList!)){
+                                    Get.snackbar("Invalid".tr,
+                                        "Please upload recent photos/videos".tr,
+                                        snackPosition: SnackPosition.BOTTOM,
+                                        snackStyle: SnackStyle.FLOATING,
+                                        backgroundColor: Colors.red);
                                   } else {
                                     controller.reportIncident(
                                         Get.find<UserController>().user,
@@ -293,8 +312,6 @@ class ReportIncident extends GetView<ReportIncidentController> {
                                         descriptionController.text,
                                         Get.find<CameraController>().medias!);
                                   }
-
-
                                   if (controller.isLoading.value) {
                                     Get.dialog(
                                         const Center(child: CircularProgressIndicator()),
@@ -345,6 +362,21 @@ class ReportIncident extends GetView<ReportIncidentController> {
         ),
       ),
     );
+  }
+
+  bool checkRecentness(List<DateTime>? dateTimeList){
+    for(DateTime dateTime in dateTimeList!){
+      if(daysBetween(dateTime, DateTime.now()).abs()>30){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  int daysBetween(DateTime from, DateTime to) {
+    from = DateTime(from.year, from.month, from.day);
+    to = DateTime(to.year, to.month, to.day);
+    return (to.difference(from).inHours / 24).round();
   }
 
   Future<bool> _onBackPressed() {
