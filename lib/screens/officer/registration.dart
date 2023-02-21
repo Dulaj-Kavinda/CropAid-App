@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:cropaid_app/screens/officer/appbar.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../theme/light_colors.dart';
+
 class OfficerRegistration extends StatelessWidget {
   OfficerRegistration({Key? key}) : super(key: key);
 
@@ -25,28 +27,33 @@ class OfficerRegistration extends StatelessWidget {
     return Scaffold(
       appBar: const OfficerAppBar(),
       body: Align(
-        alignment: Alignment.center,
+        alignment: Alignment.topCenter,
         child: SingleChildScrollView(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 15,
+              height: 35,
             ),
             const Text(
-              "Complete Profile",
-              style: CropAidThemes.titleTextTheme,
+              "Complete Your Profile",
+              style: TextStyle(
+                  color: LightColors.kDarkBlue,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20),
             ),
             const SizedBox(
               height: 25,
             ),
-            ImageProfile(context),
+            // ImageProfile(context),
             const SizedBox(
               height: 25,
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 0, 0, 10.0),
+              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: Card(
+                color: LightColors.kLightBlue,
                 shadowColor: const Color.fromARGB(255, 6, 118, 182),
                 elevation: 5,
                 child: Padding(
@@ -55,12 +62,11 @@ class OfficerRegistration extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Align(
-                          alignment: Alignment.topRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "User Credentials",
                             style: TextStyle(
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 20, 9, 119),
+                                color: LightColors.kDarkBlue,
                                 fontFamily: "Poppins"),
                           ),
                         ),
@@ -82,8 +88,9 @@ class OfficerRegistration extends StatelessWidget {
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 0, 0, 10.0),
+              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: Card(
+                color: LightColors.kLightBlue,
                 shadowColor: const Color.fromARGB(255, 6, 118, 182),
                 elevation: 5,
                 child: Padding(
@@ -92,12 +99,11 @@ class OfficerRegistration extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         const Align(
-                          alignment: Alignment.topRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "Personal Details",
                             style: TextStyle(
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 20, 9, 119),
+                                color: LightColors.kDarkBlue,
                                 fontFamily: "Poppins"),
                           ),
                         ),
@@ -120,10 +126,13 @@ class OfficerRegistration extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 15,
+            ),
             ElevatedButton(
               child: const Text("Submit"),
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 2, 3, 70)),
+                  primary: LightColors.kDarkBlue),
               onPressed: () {
                 if (GetUtils.isPhoneNumber(phoneController.text)) {
                   authController.createOfficer(
