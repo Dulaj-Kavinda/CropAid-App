@@ -108,7 +108,7 @@ class AuthController extends GetxController {
           email: _authResult.user?.email,
           nic: nic,
           role: "OFFICER",
-          profilePicRef: url,
+          profilePicRef: "https://urlty.co/Zcs",
           bank: null,
           farm: null,
           fcmToken: fcmToken);
