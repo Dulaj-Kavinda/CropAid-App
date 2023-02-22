@@ -10,12 +10,10 @@ import '../../widgets/top_container.dart';
 class FarmerHome extends GetWidget<AuthController> {
   FarmerHome({Key? key}) : super(key: key);
 
-
   final List locale = [
     {'name': 'ENGLISH', 'locale': const Locale('en', 'US')},
     {'name': 'සිංහල', 'locale': const Locale('si', 'LK')},
   ];
-
 
   updateLanguage(Locale locale) {
     Get.back();
@@ -30,13 +28,20 @@ class FarmerHome extends GetWidget<AuthController> {
   var rejectedIncidentCount;
 
   getCounts() async {
-    newIncidentCount=(await Database().getNewIncidentCount(userController.user.id));
-    inProgressIncidentCount=(await Database().getInprogressIncidentCount(userController.user.id));
-    completedIncidentCount=(await Database().getCompletedIncidentCount(userController.user.id));
-    rejectedIncidentCount=(await Database().getRejectedIncidentCount(userController.user.id));
+    newIncidentCount =
+        (await Database().getNewIncidentCount(userController.user.id));
+    inProgressIncidentCount =
+        (await Database().getInprogressIncidentCount(userController.user.id));
+    completedIncidentCount =
+        (await Database().getCompletedIncidentCount(userController.user.id));
+    rejectedIncidentCount =
+        (await Database().getRejectedIncidentCount(userController.user.id));
   }
 
-
+  _refresh(){
+    Get.back();
+    Get.updateLocale(const Locale('en', 'US'));
+  }
 
   buildLanguageDialog(BuildContext context) {
     showDialog(
@@ -77,9 +82,6 @@ class FarmerHome extends GetWidget<AuthController> {
 
     getCounts();
 
-
-    //int newIncidentCount=Database().getNewIncidentCount(userController.user.id);
-
     return Scaffold(
       body: Column(
         children: [
@@ -117,7 +119,8 @@ class FarmerHome extends GetWidget<AuthController> {
                                 OutlinedButton(
                                     style: OutlinedButton.styleFrom(
                                       side: const BorderSide(
-                                          width: 1.0, color: Color.fromARGB(255, 2, 70, 2)),
+                                          width: 1.0,
+                                          color: Color.fromARGB(255, 2, 70, 2)),
                                     ),
                                     onPressed: () {
                                       Get.back();
@@ -125,11 +128,11 @@ class FarmerHome extends GetWidget<AuthController> {
                                     },
                                     child: Text(
                                       "Confirm".tr,
-                                      style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
+                                      style: const TextStyle(
+                                          color: Color.fromARGB(255, 2, 70, 2)),
                                     )),
                               ],
                             );
-
                           },
                           icon: const Icon(Icons.logout,
                               color: LightColors.kDarkBlue, size: 30.0)),
@@ -142,15 +145,18 @@ class FarmerHome extends GetWidget<AuthController> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        const CircleAvatar(
+                        CircleAvatar(
                           radius: 76,
                           backgroundColor: Colors.white70,
-                          child: CircleAvatar(
-                            backgroundColor: LightColors.kBlue,
-                            radius: 72.0,
-                            backgroundImage: AssetImage(
-                              'assets/avatar.png',
+                          child: InkWell(
+                            child: const CircleAvatar(
+                              backgroundColor: LightColors.kBlue,
+                              radius: 72.0,
+                              backgroundImage: AssetImage(
+                                'assets/avatar.png',
+                              ),
                             ),
+                            onTap: ()=>_refresh(),
                           ),
                         ),
                         Column(
@@ -211,28 +217,32 @@ class FarmerHome extends GetWidget<AuthController> {
                           icon: Icons.blur_circular,
                           iconBackgroundColor: LightColors.kDarkYellow,
                           title: '${'New'.tr} ${'Incidents'.tr}',
-                          subtitle: '${newIncidentCount.toString()} ${'incident(s)'.tr}',
+                          subtitle:
+                              '${newIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.check_circle_outline,
                           iconBackgroundColor: LightColors.kBlue,
                           title: '${'In-Progress'.tr} ${'Incidents'.tr}',
-                          subtitle: '${inProgressIncidentCount.toString()} ${'incident(s)'.tr}',
+                          subtitle:
+                              '${inProgressIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.approval_outlined,
                           iconBackgroundColor: LightColors.kLightGreen,
                           title: '${'Completed'.tr} ${'Incidents'.tr}',
-                          subtitle: '${completedIncidentCount.toString()} ${'incident(s)'.tr}',
+                          subtitle:
+                              '${completedIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                         const SizedBox(height: 16.0),
                         TaskColumn(
                           icon: Icons.cancel_outlined,
                           iconBackgroundColor: LightColors.kRed,
                           title: '${'Rejected'.tr} ${'Incidents'.tr}',
-                          subtitle: '${rejectedIncidentCount.toString()} ${'incident(s)'.tr}',
+                          subtitle:
+                              '${rejectedIncidentCount.toString()} ${'incident(s)'.tr}',
                         ),
                       ],
                     ),

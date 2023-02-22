@@ -19,44 +19,6 @@ class LoginScreen extends GetWidget<AuthController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   alignment: Alignment.center,
-            //   decoration: const BoxDecoration(
-            //     image: DecorationImage(
-            //       image: AssetImage("assets/vegies.jpg"),
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            //   height: 250,
-            //   width: double.infinity,
-            //   child: const Text(
-            //     'CropAid',
-            //     style: TextStyle(
-            //         color: Color.fromARGB(255, 255, 255, 255),
-            //         fontWeight: FontWeight.w100,
-            //         fontSize: 70,
-            //         fontFamily: "Lobster",
-            //         shadows: [
-            //           Shadow(
-            //               // bottomLeft
-            //               offset: Offset(-1.5, -1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //           Shadow(
-            //               // bottomRight
-            //               offset: Offset(1.5, -1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //           Shadow(
-            //               // topRight
-            //               offset: Offset(1.5, 1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //           Shadow(
-            //               // topLeft
-            //               offset: Offset(-1.5, 1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //         ]),
-            //   ),
-            // ),
-
             const SizedBox(
               height: 10,
             ),
