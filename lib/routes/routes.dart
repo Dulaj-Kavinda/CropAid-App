@@ -1,11 +1,9 @@
 import 'package:cropaid_app/controllers/bindings/report_incident_binding.dart';
 import 'package:cropaid_app/screens/auth/signup_screen.dart';
-import 'package:cropaid_app/screens/common/splash_screen.dart';
 import 'package:cropaid_app/screens/farmer/home_root.dart';
 import 'package:cropaid_app/screens/farmer/report_incident.dart';
 import 'package:get/get.dart';
 
-import '../controllers/bindings/splash_binding.dart';
 import '../screens/common/root.dart';
 import '../screens/common/root_home.dart';
 import '../screens/officer/home_root.dart';

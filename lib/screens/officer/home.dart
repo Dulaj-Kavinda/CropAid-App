@@ -17,7 +17,6 @@ class OfficerHome extends GetWidget<AuthController> {
 
   UserController userController = Get.find<UserController>();
 
-
   int count = 0;
 
   @override
@@ -56,8 +55,8 @@ class OfficerHome extends GetWidget<AuthController> {
                                 OutlinedButton(
                                     style: OutlinedButton.styleFrom(
                                       side: const BorderSide(
-                                          width: 1.0, color: Color.fromARGB(255, 2, 70, 2)
-                                      ),
+                                          width: 1.0,
+                                          color: Color.fromARGB(255, 2, 70, 2)),
                                     ),
                                     onPressed: () {
                                       Get.back();
@@ -65,16 +64,14 @@ class OfficerHome extends GetWidget<AuthController> {
                                     },
                                     child: Text(
                                       "Confirm".tr,
-                                      style: const TextStyle(color: Color.fromARGB(255, 2, 70, 2)),
-                                    )
-                                ),
+                                      style: const TextStyle(
+                                          color: Color.fromARGB(255, 2, 70, 2)),
+                                    )),
                               ],
                             );
-
                           },
                           icon: const Icon(Icons.logout,
-                              color: LightColors.kDarkBlue, size: 30.0)
-                      ),
+                              color: LightColors.kDarkBlue, size: 30.0)),
                     ],
                   ),
                   Padding(
@@ -91,13 +88,13 @@ class OfficerHome extends GetWidget<AuthController> {
                             backgroundColor: LightColors.kBlue,
                             radius: 72.0,
                             backgroundImage: AssetImage(
-                            'assets/officer.png',
-                          ),
+                              'assets/officer.png',
+                            ),
                           ),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children:  <Widget>[
+                          children: <Widget>[
                             Text(
                               userController.user.name!,
                               textAlign: TextAlign.start,
@@ -125,17 +122,6 @@ class OfficerHome extends GetWidget<AuthController> {
                   )
                 ]),
           ),
-          // Container(
-          //   alignment: Alignment.center,
-          //   decoration: const BoxDecoration(
-          //     image: DecorationImage(
-          //       image: AssetImage("assets/officer-home.png"),
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          //   height: 250,
-          //   width: double.infinity,
-          // )
           Obx(
             () {
               if (incidentController.incidents.isNotEmpty) {
@@ -191,8 +177,7 @@ class OfficerHome extends GetWidget<AuthController> {
                                       alignment: Alignment.bottomRight,
                                       child: ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                            primary:  LightColors.kDarkBlue
-                                        ),
+                                            primary: LightColors.kDarkBlue),
                                         onPressed: () {
                                           Get.toNamed("/IncidentInfo",
                                               arguments: incidentController

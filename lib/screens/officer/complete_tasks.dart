@@ -49,22 +49,10 @@ class CompleteTasks extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-
                 ],
               ),
             ),
           ),
-          // Container(
-          //   alignment: Alignment.center,
-          //   decoration: const BoxDecoration(
-          //     image: DecorationImage(
-          //       image: AssetImage("assets/officer-complete.jpg"),
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          //   height: 250,
-          //   width: double.infinity,
-          // ),
           Obx(
             () {
               if (incidentController.completeIncidents.isNotEmpty) {

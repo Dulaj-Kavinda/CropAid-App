@@ -10,8 +10,6 @@ class FarmerHomeRoot extends GetView<FarmerBottomNavController> {
   final FarmerBottomNavController bottomNavController =
       Get.put(FarmerBottomNavController());
 
-  // TODO: delete bottom nav controller on sign out
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

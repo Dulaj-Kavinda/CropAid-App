@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:cropaid_app/controllers/auth_controller.dart';
-import 'package:cropaid_app/screens/common/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cropaid_app/screens/officer/appbar.dart';
@@ -131,8 +130,7 @@ class OfficerRegistration extends StatelessWidget {
             ),
             ElevatedButton(
               child: const Text("Submit"),
-              style: ElevatedButton.styleFrom(
-                  primary: LightColors.kDarkBlue),
+              style: ElevatedButton.styleFrom(primary: LightColors.kDarkBlue),
               onPressed: () {
                 if (GetUtils.isPhoneNumber(phoneController.text)) {
                   authController.createOfficer(

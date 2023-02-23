@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../controllers/auth_controller.dart';
 import '../../theme/light_colors.dart';
 
-
 class SignUpScreen extends GetWidget<AuthController> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -19,48 +18,11 @@ class SignUpScreen extends GetWidget<AuthController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   alignment: Alignment.center,
-            //   decoration: const BoxDecoration(
-            //     image: DecorationImage(
-            //       image: AssetImage("assets/vegies.jpg"),
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            //   height: 250,
-            //   width: double.infinity,
-            //   child: const Text(
-            //     'Cropify',
-            //     style: TextStyle(
-            //         color: Color.fromARGB(255, 255, 255, 255),
-            //         fontWeight: FontWeight.w100,
-            //         fontSize: 70,
-            //         fontFamily: "Lobster",
-            //         shadows: [
-            //           Shadow(
-            //               // bottomLeft
-            //               offset: Offset(-1.5, -1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //           Shadow(
-            //               // bottomRight
-            //               offset: Offset(1.5, -1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //           Shadow(
-            //               // topRight
-            //               offset: Offset(1.5, 1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //           Shadow(
-            //               // topLeft
-            //               offset: Offset(-1.5, 1.5),
-            //               color: Color.fromARGB(255, 2, 70, 2)),
-            //         ]),
-            //   ),
-            // ),
-            const Image(image: AssetImage(
-              'assets/auth-1.png',
-            ),
-                height: 300
-            ),
+            const Image(
+                image: AssetImage(
+                  'assets/auth-1.png',
+                ),
+                height: 300),
             Text(
               'CROPAID',
               style: GoogleFonts.poppins(
@@ -79,7 +41,10 @@ class SignUpScreen extends GetWidget<AuthController> {
                   children: <Widget>[
                     TextFieldContainer(
                       child: TextFormField(
-                        decoration: const InputDecoration(hintText: "Email",  border: InputBorder.none,),
+                        decoration: const InputDecoration(
+                          hintText: "Email",
+                          border: InputBorder.none,
+                        ),
                         controller: emailController,
                       ),
                     ),
@@ -87,7 +52,7 @@ class SignUpScreen extends GetWidget<AuthController> {
                       height: 10,
                     ),
                     TextFieldContainer(
-                      child:  TextFormField(
+                      child: TextFormField(
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Password",
@@ -117,10 +82,11 @@ class SignUpScreen extends GetWidget<AuthController> {
   }
 }
 
-
 class TextFieldContainer extends StatelessWidget {
   final Widget child;
-  const TextFieldContainer({super.key,
+
+  const TextFieldContainer({
+    super.key,
     required this.child,
   });
 
