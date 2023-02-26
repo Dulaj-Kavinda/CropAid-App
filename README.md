@@ -1,5 +1,7 @@
 ## CropAid
 
+### *A State-of-the-Art Crop Damage Assistant*
+
 Mobile Application for assessing crop damage and paying compensation for government officers and facilitating compensation claiming functions for farmers using Flutter and Firebase.
 
 ### Features of CropAid App:
