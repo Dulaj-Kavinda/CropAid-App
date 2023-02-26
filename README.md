@@ -1,16 +1,14 @@
-# cropaid_app
+## CropAid
 
-A new Flutter project.
+Mobile Application for assessing crop damage and paying compensation for government officers and facilitating compensation claiming functions for farmers using Flutter and Firebase.
 
-## Getting Started
+### Features of CropAid App:
+ • Signup and Login using Firebase authentication\
+ • Verification of the recentness of the images or videos uploaded using Exif package.\
+ • Provide secure transactions using PayHere payment gateway.\
+ • Switch between different language option(English, Sinhala) using GetX package.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Screenshots:
+<img src="https://github.com/Dulaj-Kavinda/CropAid-App/blob/main/ScreenShots/1.jpg" width="250" height="520"/> <img src="https://github.com/Dulaj-Kavinda/CropAid-App/blob/main/ScreenShots/3.jpg" width="250" height="520"/> <img src="https://github.com/Dulaj-Kavinda/CropAid-App/blob/main/ScreenShots/8.jpg" width="250" height="520"/>
+<br>
+<img src="https://github.com/Dulaj-Kavinda/CropAid-App/blob/main/ScreenShots/12.jpg" width="250" height="520"/> <img src="https://github.com/Dulaj-Kavinda/CropAid-App/blob/main/ScreenShots/9.jpg" width="250" height="520"/> <img src="https://github.com/Dulaj-Kavinda/CropAid-App/blob/main/ScreenShots/11.jpg" width="250" height="520"/>
